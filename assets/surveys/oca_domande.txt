@@ -1,0 +1,4112 @@
+Given the following:
+
+1.     public class Java8_I {
+2.          public static void main (String[] args) {
+3.               double[][][] matrix = new double[5][5][5];
+4.               for (int x = 0; x < matrix.length; x ++) {
+5.                    for (int y = 0; y < matrix[x].length; y++) {
+6.                         for (int z = 0; z < matrix[x][y].length; z++) {
+7.                              //insert code here
+8.                         }
+9.                    }
+10.               }
+11.          }
+12.     }
+
+Which line of code, when inserted independently at line 7, will set each element in the matrix array to the product of its dimension indices?
+	matrix{x y z} = x * y * z;
+	matrix{x,y,z} = x * y * z;
+X	matrix[x][y][z] = x * y * z;
+	matrix[[x][y][z]] = x * y * z;
+
+	
+	------------------------------
+	
+
+Given the following:
+
+package games.card;
+
+public class Poker {
+     public void call() {System.out.println("Call!");}
+     public void raise(double amt) {System.out.println("Raise by " + amt);}
+     public void fold() {System.out.println("Fold!");}
+}
+
+and
+
+package java8.app;
+
+//Insert code here
+
+public class GameApp {
+     public static void main(String[] args) {
+          Poker pokerGame = new Poker();
+          if (args.length > 0) {
+               if (args[0].equalsIgnoreCase("raise")) {
+                    pokerGame.raise(Double.parseDouble(args[1]));
+               } else pokerGame.call();
+          } else pokerGame.fold();
+     }
+}
+
+Which two import statements, when inserted independently in the second source file, would enable the code to compile and run?
+	import java8;
+	import java8.*;
+	import java8.app.*;
+	import java8.app.GameApp;
+	import games;
+	import games.*;
+X	import games.card.*;
+X	import games.card.Poker;
+	
+	-------------------------
+	
+Which three statements will cause a runtime or compiler error?
+	LocalDate.of(2015, 5, 31);
+X	LocalDate.of(2015, Month.MAY, 50);
+X	LocalDate date = new LocalDate(2015,5,31);
+X	LocalDate date = new LocalDate();
+	LocalDate.now();
+	
+	
+	----------------------
+	
+	
+	
+
+Given:
+
+public class Pedometer {
+     private String units;
+     private double stride;
+     public Pedometer(String units) {
+          this.units = units;
+     }
+}
+
+Which code fragment correctly overloads the constructor?
+X	public Pedometer (double stride) {
+     this("inches");
+     this.stride = 25;
+}
+	public Pedometer (String units, double stride) {
+     super("inches");
+     super.stride = 25;
+}
+	public static Pedometer init() {
+     Pedometer ped = new Pedometer("inches");
+     ped.stride = 25;
+     return ped;
+}
+	public static Pedometer init(String units, double stride) {
+     Pedometer ped = new Pedometer(units);
+     ped.stride = stride;
+     return ped;
+}
+-------------------
+
+
+
+Given:
+
+String str1 = "salt";
+String str2 = "sAlT";
+
+Which two code fragments will output str1 and str2 are equal?
+	if (str1 == str2 )
+     System.out.println("str1 and str2 are equal");
+	if (str1.equals(str2) )
+     System.out.println("str1 and str2 are equal");
+	if (str1 == str2.toLowerCase() )
+     System.out.println("str1 and str2 are equal");
+X	if (str1.equals(str2.toLowerCase()) )
+     System.out.println("str1 and str2 are equal");
+X	if (str1.equalsIgnoreCase(str2) )
+     System.out.println("str1 and str2 are equal");
+-----------------
+
+
+Given:
+
+public class Circle {
+     public double getCircumference(double radius ) {
+          return java.lang.Math.PI * 2 * radius;
+     }
+     public static double getArea(double radius) {
+          return java.lang.Math.PI * radius * radius;
+     }
+}
+
+Which two code fragments will fail compilation?
+X	Circle.getCircumference(10.5);
+	new Circle().getCircumference(10.5);
+X	double c = Circle.getCircumference(10.5);
+	Circle.getArea(5.5);
+	new Circle().getArea(5.5);
+	double a = new Circle().getArea(5.5);
+
+	---------------------
+	
+	public class JavaSETest {
+     public static void main(String[] args) {
+          List<Integer> weights = new ArrayList<>();
+          weights.add(0);
+          weights.add(5);
+          weights.add(10);
+          weights.add(15);
+          weights.add(20);
+          weights.add(25);
+          weights.remove(5);
+          System.out.println("Weights are "+ weights);
+     }
+}
+
+What is the output of the preceding code?
+	Weights are null
+	Weights are [0, 0, 10, 1, 20]
+X	Weights are [0, 5, 10, 15, 20]
+	Weights are [0, 10, 15, 20, 25]
+	
+	----------------------
+	
+	Given:
+
+public interface StringInterface {
+     public String toString();
+}
+
+public class SuperString implements StringInterface {
+     public String toString() {
+          return "Super String";
+     }
+}
+
+class SubString extends SuperString {
+     public String toString() {
+          return "Sub String";
+     }
+     public static void main(String[] args) {
+          //insert code here
+          System.out.println(str);
+     }
+}
+
+Which three statements, when inserted in the code, will generate the output Super String?
+	Object str = new SubString();
+X	Object str = new SuperString();
+	SubString str = new SubString();
+X	SuperString str = new SuperString();
+	StringInterface str = new SubString();
+X	StringInterface str = new SuperString();
+
+	
+	----------------------------------
+	
+	
+
+Given the code fragment:
+
+char[] charArray = { '8', '9', '0', 'e', 's', 'p', 'r', 'e', 's', 's', 'o'};
+int i = 48; //Start range for digits
+do {
+     for(char c : charArray) {
+          if ((char) i == c) {
+               System.out.println(c + " found!");
+               //insert skip statement
+          }
+     }
+} while (i++ < 57); //End range for digits
+
+The skip statement should terminate only the inner for block if a numerical character is found.
+
+Which skip statement should be inserted in the code?
+X	break;
+	break for;
+	continue;
+	return;
+
+	
+	--------------
+	
+
+
+Which two method declarations will compile if their implementation code explicitly throws a BadStringOperationException?
+	void trySomething (OperationType op)
+X	void trySomething (OperationType op) throws Exception
+	void trySomething (OperationType op) throw UnsupportedOperationException
+	void trySomething (OperationType op) throw BadStringOperationException
+X	void trySomething (OperationType op) throws BadStringOperationException
+	
+	-------------
+	
+	
+	Given:
+
+public class ExceptionSelection {
+     private Exception ex;
+     public ExceptionSelection(Exception ex) {
+          this.ex = ex;
+     }
+     public void throwException() throws Exception {
+          System.out.println("Method started...");
+          throw ex;
+     }
+     public static void main (String[] args) throws Exception {
+          ExceptionSelection exObj = 
+            new ExceptionSelection(new UnsupportedOperationException());
+          exObj.throwException();
+          System.out.println("Method ended.");
+     }
+}
+
+What is the most likely output?
+	Exception in thread "main" java.lang.UnsupportedOperationException
+		at java8_ii.ExceptionSelection.main(ExceptionSelection.java:21)
+X	Method started...
+		Exception in thread "main" java.lang.UnsupportedOperationException
+		at java8_ii.ExceptionSelection.main(ExceptionSelection.java:21)
+	Exception in thread "main" java.lang.UnsupportedOperationException
+		at java8_ii.ExceptionSelection.main(ExceptionSelection.java:21)
+		Method ended.
+	Method started...
+		Exception in thread "main" java.lang.UnsupportedOperationException
+		at java8_ii.ExceptionSelection.main(ExceptionSelection.java:21)
+		Method ended.
+
+
+----------------------------------
+
+
+
+Which statement is true about reference and object types?
+	The reference type corresponds to the instantiated class.
+	The object type corresponds to the type in the variable declaration.
+	The reference type determines which implementation is executed for overloaded methods.
+X	The object type determines which implementation is executed for overridden methods.
+
+	
+	-------------------------
+	
+	
+
+Given:
+
+public class Java8 {
+
+     static int modify (int[] i) {
+          i[0] += 10;
+          return i[0] + 10;
+     }
+     public static void main(String[] args) {
+          int[] i = {10};
+          //insert code here
+     }
+}
+
+Which statement(s) should be inserted in the code to output 35?
+	System.out.println(modify(i));
+	System.out.println(modify(i)+ 15);
+	modify(i); System.out.println(i[0]);
+X	modify(i); System.out.println(i[0] + 15);
+
+	
+	----------------------
+	
+	
+
+Which statement is true about abstract classes?
+
+	An abstract class may contain only abstract methods.
+X	An abstract class may contain both class and instance members.
+	Abstract methods may be declared with the final modifier.
+	Abstract methods may be declared with the private modifier.
+
+	
+	--------------------------
+	
+	
+
+
+Which statement is true about if statements nested in if and else statements?
+X	The inner if statement(s) are evaluated only if the outer if statement is true.
+	The inner if statement(s) are evaluated only if the outer if statement is evaluated.
+	The outer else statement is evaluated only if the inner if statement(s) are true.
+	The outer else statement is evaluated only if the inner if statement(s) are evaluated.
+
+	
+	-------------
+	
+	
+	
+
+Which of the following is a valid definition for the main method in a Java application?
+	public void Main(String[] args) {
+     if (args.length > 0)
+          System.out.println("You provided some arguments!");
+     else
+          System.out.println("No arguments provided.");
+}
+	public static int main(String[] args) {
+     if (args.length > 0)
+          System.out.println("You provided some arguments!");
+     else
+          System.out.println("No arguments provided.");
+     return 0;
+}
+	public int Main(String[] args) {
+     if (args.length > 0)
+          System.out.println("You provided some arguments!");
+     else
+          System.out.println("No arguments provided.");
+     return 0;
+}
+X	public static void main(String[] cmdArgs) {
+     if (cmdArgs.length > 0)
+          System.out.println("You provided some arguments!");
+     else
+          System.out.println("No arguments provided.");
+}
+
+--------------------------
+
+
+
+Given:
+
+ArrayList<String> names = new ArrayList<>(2);
+names.add("Alice");
+names.add("Ann");
+names.add("James");
+
+Which two expressions will evaluate to 3?
+X	names.size()
+	names.length
+	names.length()
+	names.get(1).size()
+	names.get(1).length
+X	names.get(1).length()
+
+	------------------------
+	
+	
+
+Given the following:
+
+public class VarScope {
+     int var;
+     public static void main (String[] args) {
+          int var = 10;
+          VarScope scope = new VarScope();
+          scope.var = var + 2;
+     scope.adjustVar(scope.var + 2);
+          System.out.println("var = " + var);
+     }
+     private void adjustVar(int var) {
+          var += 2;
+     }
+}
+
+What is the result?
+X	var = 10
+	var = 12
+	var = 14
+	var = 16
+
+	-------------------------
+	
+	
+Given the following:
+
+package java8;
+
+public class MyBasicClass {}
+
+Which statement is true about packages in MyBasicClass?
+X	MyBasicClass can access members using simple names in the java8 package without an implicit import statement.
+	MyBasicClass can access all members using simple names in the same application without an implicit import statement.
+	MyBasicClass can only access members using simple names in the java.lang package with an explicit import statement.
+	MyBasicClass can only access members using simple names in the same application with an explicit import statement.
+
+	
+	----------------------
+	
+	Given the following:
+
+public class SmartPhone {
+     float screenResolution, width, height;
+     public static void main (String[] args) {
+          SmartPhone phone;
+          phone.height = 112.2f;
+          phone.width = 56.8f;
+          System.out.format("%.0f dpi - %.1f X %.1f", 
+          phone.screenResolution, phone.height, phone.width);
+     }
+}
+
+What is the result?
+	null dpi - 112.2 X 56.8
+	0 dpi - 112.2 X 56.8
+	A runtime error is produced.
+X	A compile error is produced.
+
+	
+	------------------------
+	
+	
+
+Given the following code:
+
+public class WrapperTest {
+     public static void main(String[] args) {
+          System.out.println(Integer.valueOf("777.77"));
+     }
+}
+
+What would be the output of this code fragment?
+	77
+	777
+	777.77
+X	NumberFormatException
+
+	
+	------------------------------
+	
+	
+
+Given:
+
+public class CardDeck {
+     public CardDeck() {/*Implementation omitted*/}
+     public CardDeck (int suits) {/*Implementation omitted*/}
+     public CardDeck (int suits, boolean includeJokers) {/*Implementation omitted*/}
+}
+
+Which constructor is the default constructor?
+	CardDeck()
+	CardDeck (int)
+	CardDeck (int, boolean)
+X	Not provided.
+
+	
+	-----------------------
+	
+	
+
+Given:
+
+public interface StringInterface {
+     public String toString();
+}
+
+public class SuperString implements StringInterface {
+     public String toString() {
+          return "Super String 1";
+}
+     public Object toString(String str) {
+          return "Super String 2";
+     }
+}
+
+class SubString extends SuperString {
+     public String toString() {
+          return "Sub String 1";
+     }
+     public String toString(String str) {
+          return "Sub String 2";
+     }
+     public static void main(String[] args) {
+          StringInterface string = new SubString();
+          System.out.println(string.toString("test"));
+     }
+}
+
+What is the result?
+	Sub String 1
+	Sub String 2
+	Super String 1
+	Super String 2
+X	Compilation fails.
+	An exception is thrown at run time.
+
+	-----------------------
+	
+	
+
+Given:
+
+public abstract class Writer {
+     public static void write() {System.out.println("Writing...");}
+}
+public class Author extends Writer {
+     public static void write() {System.out.println("Writing book");}
+}
+public class Programmer extends Writer {
+     public static void write() {System.out.println("Writing code");}
+     public static void main(String[] args) {
+          Writer w = new Programmer();
+          w.write();
+     }
+}
+
+What is the result?
+X	Writing...
+	Writing book
+	Writing code
+	Compilation fails.
+	An exception is thrown at run time.
+
+	------------------
+	
+	Given:
+
+StringBuilder sb = new StringBuilder("Test");
+
+What is the initial capacity of the StringBuilder object?
+	4
+	12
+	16
+X	20
+
+	
+	-----------
+	
+	
+
+Given the following code fragment:
+
+public class TestArrayList {
+     public static void main (String[] args) {
+          ArrayList<String> names = new ArrayList<>(
+          Arrays.asList("Amy","Anne","Brian","George","Ruth","Todd"));
+names.add("Jason");
+          System.out.println(names[6]);
+     }
+}
+
+What is the result?
+X	Code compilation fails.
+	Code throws a runtime exception.
+	Ruth
+	Todd
+	Jason
+
+	
+	--------------
+	
+	
+
+Which two statements are true about the contents of a class?
+	A class can include only non-static members.
+X	A class cannot include package or import statements.
+X	A class can include nested enumerations and classes.
+	A class cannot include constructors.
+
+	
+	--------------
+	
+Which statement is true about constructor overloading?
+	A default constructor can be overloaded in the same class.
+X	A default constructor can be overloaded in a subclass.
+	The constructor must use a different name.
+	The constructor must use the this keyword.
+
+	
+	-----------------
+	
+	
+
+Given:
+
+public class RuntimeExceptionTests {
+     public static char performOperation(String str) {
+          return str.charAt(0);
+     }
+     public static void main (String[] args) {
+          performOperation("");
+     }
+}
+
+Which exception is thrown by running the given code?
+	NullPointerException
+	IndexOutOfBoundsException
+	ArrayIndexOutOfBoundsException
+X	StringIndexOutOfBoundsException
+	
+	--------------------------
+	
+	
+
+Given the following:
+
+public class MyBasicClass {
+     static int field;                    //line 1
+     int getField() {}                    //line 2
+     static void Main(String[] args) {    //line 3
+          System.out.println(field);      //line 4
+     }
+}
+
+Which line causes a compilation error?
+	line 1
+X	line 2
+	line 3
+	line 4
+
+	
+	---------------------
+	
+	
+
+Which two declaration statements correctly initialize their variables?
+X	boolean b1 = (6 < 4);
+	boolean b2 = 1;
+	int i1 = 40.4;
+	int i2 = -6,000;
+	float f1 = 10.01;
+X	float f2 = 10.01E2f;
+
+	
+	---------------------
+	
+	
+
+Given the following:
+
+String s1 = "espresso";
+String s2 = "java";
+int i = 1;
+boolean b = true;
+
+Which two expressions are valid in a while statement?
+X	s1.equals(s2)
+	s1.compareTo(s2)
+	i = 2
+X	i == 2
+	b != "false"
+	i <= b
+
+	
+	-------------------
+	
+Which of the following examples best illustrates the concept of Java inheritance? (Choose all that apply.)
+X	A method in one class can reuse methods in another class.
+	A method in one class can reuse methods in multiple other classes.
+X	A method is invoked based on the instantiated object.
+	A method is invoked based on the method signature.
+	A method is invoked based on the object reference.
+
+	-----------------
+	
+	
+
+Which exception indicates that an index is invalid when using a vector, array, or string?
+	RuntimeException
+X	IndexOutOfBoundsException
+	ArrayIndexOutOfBoundsException
+	StringIndexOutOfBoundsException
+
+	
+	-------------------
+	
+	
+
+Given the following:
+
+public class VarScope {
+     static int var;
+     public static void main (String[] args) {
+          int var = 9;
+          printVar();
+     }
+     public static void printVar() {
+          int var = 10;
+          System.out.print("var = " + var++);
+     }
+}
+
+What is the result?
+	var = 0
+	var = 9
+X	var = 10
+	var = 11
+
+	
+	------------------------
+	
+	
+	
+
+Given the following:
+
+public class MyBasicClass {
+     //Insert code here
+}
+
+Which three lines of code can be included in the class?
+	package basicPackage;
+	import java.text.*;
+X	enum ClassType {basic, advanced}
+X	void BasicMethod() {}
+X	static final int VAL=1000;
+
+	
+	--------------------
+	
+	
+
+Which statement is true about declaring members in a concrete class?
+X	All methods and constructors must contain bodies.
+	All fields must be initialized explicitly.
+	Only instance fields and methods are supported.
+	Only static fields and methods are supported.
+
+	
+	--------------------
+	
+	Given the following:
+
+public class CommandLineClass {
+     public static void main(String[] args) {
+          System.out.print("Argument: " + args[1]);
+     }
+}
+
+Which command will run the code without error?
+	java CommandLineClass arg1
+X	java CommandLineClass arg1 arg2
+	javac CommandLineClass arg1
+	javac CommandLineClass arg1 arg2
+
+	
+	-------------------
+	
+	Given the following:
+
+public class CommandLineClass {
+     public static void main(String[] args) {
+          System.out.print("Argument: " + args[2]);
+     }
+}
+
+and
+
+javac CommandLineClass.java
+java CommandLineClass arg1,arg2 arg3
+
+What is the result?
+	arg1
+	arg2
+	arg3
+	arg1,arg2
+X	Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException
+
+	
+	------------------------
+	
+	
+Given the following:
+
+public class Circle {
+     static double getCircumference(double radius ) {
+          return PI * 2 * radius;
+     }
+     public static double getArea(double radius) {
+          return PI * radius * radius;
+     }
+}
+
+Which import statement will enable the code to compile and run?
+	import java.lang.*;
+	import java.lang.Math;
+	import java.lang.Math.*;
+X	import static java.lang.Math.PI;
+
+	
+	-----------------------
+	
+	
+
+Given the following:
+
+public class Java8_I {
+     public static void main (String[] args) {
+          //Code goes here
+          System.out.println("Value: " + b);
+     }
+}
+
+Which declaration line, when inserted at line 3, enables the code to compile and run?
+	boolean b = 0;
+	boolean b = null;
+	byte b = 1101;
+X	byte b = 0b1101;
+
+	
+	--------------------
+	
+	
+
+Given the following:
+
+public class Java8{
+     public static void main (String[] args) {
+          int x = 1;
+          int y = x;
+          int z = y;
+          z = 10;
+          System.out.format("x,y,z: %d,%d,%d", x, y, z);
+     }
+}
+
+What is the result when this program is executed?
+	x,y,z: 10,10,10
+	x,y,z: 1,10,10
+X	x,y,z: 1,1,10
+	x,y,z: 1,1,1
+
+	
+	----------------------
+	
+	
+
+Given the following:
+
+public class Java8_I {
+     static class RefType {
+          int val;
+          RefType(int val) {this.val = val;}
+     }
+
+     public static void main (String[] args) {
+          RefType x = new RefType(1);
+          RefType y = x;
+          RefType z = y;
+          z.val = 10;
+          System.out.format("x,y,z: %d,%d,%d", x.val, y.val, z.val);
+     }
+}
+
+What is the result when this program is executed?
+X	x,y,z: 10,10,10
+	x,y,z: 1,10,10
+	x,y,z: 1,1,10
+	x,y,z: 1,1,1
+
+	
+	--------------------------
+	
+	
+
+Given the following class:
+
+public class Machine {
+     float OSVersion;
+     public static void main (String[] args) {
+          //Insert code here
+     }
+}
+
+Which code fragment correctly assigns a value to the OSVersion field at line 4?
+	OSVersion = 10.1f;
+	Machine.OSVersion = 10.1f;
+X	Machine myMachine = new Machine();
+		myMachine.OSVersion = 10;
+	Machine myMachine = new Machine();
+		Machine.OSVersion = 10;
+		
+-----------------------------------
+
+
+
+Given the following code:
+
+public class JavaSETest {
+     public static void main(String[] args) {
+          List<Integer> sizes = new ArrayList<>();
+          sizes.add(null);
+          int firstSize = sizes.get(0);
+          System.out.println(firstSize);
+     }
+}
+
+What would be the output of this code fragment?
+	null
+	0
+	1
+X	NullPointerException
+
+	
+	--------------------------
+	
+	
+	
+	
+
+Which code line increments the variable x after the variable y is assigned to the expression?
+	int y = (x + 1) * 25;
+	int y = x + 1 * 25;
+X	int y = x++ * 25;
+	int y = ++x * 25;
+
+	
+	-------------------------
+	
+	
+	
+
+Given the following:
+
+int x = 5;
+
+Which two expressions evaluate to 5?
+	x-- + 10
+	--x + 10
+X	-x + 10
+	10 - --x
+X	10 - x--
+	10 - -x
+
+	
+	-------------------
+	
+	
+
+Given the following:
+
+public class Java8_I {
+  public static void main (String[] args) {
+    String s1 = "salty"; 
+    String s2 = new String("salty");
+    String s3 = s2;
+    if (s1.equals(s2) && s2.equals(s3)) 
+      System.out.println("We are equal!");
+    if (s1 == s2 && s2 == s3)
+      System.out.println("We are really equal!");
+  }
+}
+
+What is the result when this program is executed?
+X	We are equal!
+	We are really equal!
+	We are equal! 
+		We are really equal!
+	Nothing prints.
+
+	
+	-------------------
+	
+	
+
+
+
+Given the following code fragment:
+
+public class JavaSETest {
+     public static void main(String[] args) {
+          int index = 0;
+          int number = (index<5)? 10 : "No";
+          System.out.println(number);
+     }
+}
+
+What is the output?
+	0
+	10
+	No
+X	Compiler error
+
+	
+	------------------------------
+	
+	
+
+Given following code:
+
+public class JavaSETest {
+     public static void main(String[] args) {
+          int i=0, j=1;
+          int a = j<5? j++ : i++;
+          System.out.println("i=" + i+ " j=" + j);
+     }
+}
+
+What will be the result?
+	i=0 j=1
+X	i=0 j=2
+	i=1 j=1
+	i=1 j=2
+
+	
+	------------------------------
+	
+	
+
+Given the following:
+
+switch(cardVal) {
+     case 4: case 5: case 6:
+     case 7: case 8:
+          System.out.println("Hit");
+          break;
+     case 9: case 10: case 11:
+          System.out.println("Double");
+          break;
+     case 15: case 16:
+          System.out.println("Surrender");
+          break;
+     default:
+          System.out.println("Stand");
+}
+
+Which two values for the variable cardVal will output Stand?
+	6
+	10
+X	14
+	16
+X	18
+
+	
+	------------------------------
+	
+	
+
+
+Examine the code fragment:
+
+public static String getGradeFB (String grade) {
+     String comment = null;
+     switch (grade) {
+          case "A":
+          case "B":
+               comment = "Excellent job!";
+               break;
+          case "C":
+          case "D":
+               comment = "You should try again.";
+               break;
+          case "F":
+               comment = "You should study more.";
+          default:
+               throw new RuntimeException();
+     }
+     return comment;
+}
+
+Which three code statements will throw an exception?
+	getGradeFB("A");
+	getGradeFB("B");
+	getGradeFB("C");
+X	getGradeFB("d");
+X	getGradeFB("F");
+X	getGradeFB(null);
+
+	
+	----------------
+	
+	
+
+Given the following:
+
+public class Java8_I {
+     public static void main (String[] args) {
+          int[10] intArray; //line 1
+          intArray[0] = 10; //line 2
+          intArray[10] = 0; //line 3
+          System.out.print(intArray.length); //line 4
+     }
+}
+
+Which line causes a compilation error?
+X	Line 1
+	Line 2
+	Line 3
+	Line 4
+
+	
+	-----------------
+	
+Which statement is true about array declarations?
+	An array's dimension can be set without using the new keyword.
+	Curly braces can contain a comma-delimited list of dimensions.
+	Square brackets can contain a comma-delimited list of values.
+X	Square brackets can be placed after the data type or variable name.
+
+	-------------------
+	
+	Given the code fragment:
+
+char [][] charArray2D = {{'c','u','p'},{'j','a','v','a'}};
+System.out.println(charArray2D[1][2]);
+
+What is the result?
+	u
+X	v
+	cup
+	java
+
+	-----------------------------
+	
+	
+
+Given the code fragment:
+
+int i = 0;
+while (i < 10 ? 1 : 0) {
+     i++;
+}
+System.out.println(i);
+
+What is the result?
+X	Code compilation fails.
+	Code throws a runtime exception.
+	0
+	9
+	10
+
+	
+	------------------------
+	
+	
+
+Given the following:
+
+int x = 0;
+
+Which code fragment increments x to 10?
+X	while (x < 10) { x++; }
+	while (x < 11) { x++; }
+	while (x < 10 ? 1 : 0) { x++; }
+	while (x < 11 ? 1 : 0) { x++; }
+
+	
+	-----------------------
+	
+	
+
+Given the code fragment:
+
+int[] grades = {73,82,97,91,67};
+
+Which two sets of expressions are valid in a for statement?
+	;; i++
+	;i < 5; i++
+X	int i = 0;i < 5; i++
+X	int i : grades
+	grades : int i
+
+	
+	---------------------
+	
+	
+
+Given the code fragment:
+
+int i = 0;
+for (;;) {
+     i++;
+}
+System.out.println(i);
+
+What is the result?
+X	Code compilation fails.
+	Code throws a runtime exception.
+	0
+	2,147,483,647
+	-2,147,483,648
+
+	
+	-------------------------
+	
+	
+
+Given the following code fragment:
+
+int i = 6;
+do {
+     System.out.print(--i + " "); 
+} while (i > 0);
+System.out.print("...BLAST OFF!");
+
+What is the result?
+	...BLAST OFF!
+	4 3 2 1 0 ...BLAST OFF!
+X	5 4 3 2 1 0 ...BLAST OFF!
+	5 4 3 2 1 ...BLAST OFF!
+	6 5 4 3 2 1 ...BLAST OFF!
+
+	
+	---------------------------
+	
+	
+Which statement is true about the while statement in a do-while block?
+	The while statement requires an expression that must evaluate to an int.
+X	The while statement requires an expression that must evaluate to a boolean.
+	Statements within a while block will execute at least once.
+	Statements within a do-while block may never execute.
+
+
+	
+	...............-
+	
+	
+	
+
+Given the following:
+
+public class Java8_Looping {
+     public static void main(String[] args) {
+          char[] charArray = { 'e', 's', 'p', 'r', 'e', 's', 's', 'o', '8', '9', '0'};
+          int i = 48; //Start range for digits
+          do {
+               for(char c : charArray) 
+                    if ((char) i == c)
+                         System.out.println(c + " found!");
+          } while (i++ < 57); //End range for digits
+     }
+}
+
+How many times is found! printed?
+	None
+	Once
+	Twice
+X	Thrice
+
+	
+	----------------
+	
+	Given the following code fragment: 
+
+public class StandardMethods { 
+     public static double getSurfaceArea(double width, double height, double length) { 
+          return 2 * (width * length + height * length + height * width); 
+     } 
+} 
+
+Assuming the given code is in the same package, which two code lines will compile? 
+	StandardMethods.getSurfaceArea(8.5);
+	StandardMethods.getSurfaceArea(8.5,11);
+X	StandardMethods.getSurfaceArea(8.5,11, 1.5);
+	double surfaceArea =StandardMethods.getSurfaceArea(8.5);
+	double surfaceArea =StandardMethods.getSurfaceArea(8.5,11);
+X	double surfaceArea =StandardMethods.getSurfaceArea(8.5,11, 1.5);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	--------------
+	
+	Given the following code fragment:
+
+public class StandardMethods {
+     public static void printPerimeter(double... sides) {
+          double result = 0;
+          for (double side: sides) {
+               result += side;
+          }
+          System.out.println("Perimeter is " + result);
+     }
+}
+
+Assuming the given code is in the same package, which two code lines will compile?
+X	StandardMethods.printPerimeter();
+X	StandardMethods.printPerimeter(7.5, 9.8, 11);
+	double perimeter = StandardMethods.printPerimeter();
+	double perimeter = StandardMethods.printPerimeter(7.5, 9.8, 11);
+
+	
+	----------------------
+	
+	
+
+Which statement is true about varargs when specifying method parameters?
+	Arguments are accessible as enumeration values.
+	Arguments can consist of different data types.
+	Valid invocation requires at least one argument value.
+X	Valid invocation can have zero arguments.
+
+	
+	-------------
+	
+	
+
+Which code fragment is a valid method declaration for an arbitrary number of values?
+X	public Result performOperation (OperationType type, Object... args) {
+     //implementation omitted
+}
+	public Result performOperation (OperationType type, Object varargs) {
+     //implementation omitted
+}
+	public Result performOperation (Object... args, OperationType type) {
+     //implementation omitted
+}
+	public Result performOperation (Object varargs, OperationType type) {
+     //implementation omitted
+}
+
+--------------------
+
+
+
+Given:
+
+public class VarScope {
+     static int var;
+     public static void main (String[] args) {
+          int var = 9;
+          printVar();
+     }
+     public static void printVar() {
+          int var = 10;
+          //insert code here
+     }
+}
+
+Which statement should be inserted in the code to output 0?
+	System.out.print(var);
+X	System.out.print(VarScope.var);
+	System.out.print(main.var);
+	System.out.print(main().var);
+
+	
+	------------------------
+	
+	
+Given the code:
+
+public class VarScope {
+     public int i1;
+     public static int i2;
+}
+
+Given the output:
+
+10 + 5 = 15
+
+Which two code fragments will generate the required output?
+X	VarScope v1 = new VarScope();
+		VarScope v2 = new VarScope();
+		v1.i1 = 10; v2.i1 = 5;
+		System.out.format("%d + %d = %d", v1.i1, v2.i1, v1.i1 + v2.i1);
+	VarScope v1 = new VarScope();
+		VarScope v2 = new VarScope();
+		v1.i2 = 10; v2.i2 = 5;
+		System.out.format("%d + %d = %d", v1.i2, v2.i2, v1.i2 + v2.i2);
+X	VarScope v1 = new VarScope();
+		VarScope v2 = new VarScope();
+		v1.i1 = 10; v2.i2 = 5;
+		System.out.format("%d + %d = %d", v1.i1, v1.i2, v1.i1 + v1.i2);
+	VarScope v1 = new VarScope();
+		VarScope v2 = new VarScope();
+		v1.i1 = 10; v2.i1 = 5;
+		System.out.format("%d + %d = %d", v1.i2, v1.i2, v1.i2 + v1.i2);
+		
+		
+		---------------------
+		
+		
+
+Given:
+
+public class SuperEmptyClass {
+     public SuperEmptyClass (Object obj) { /*Implementation omitted*/ }
+}
+public class EmptyClass extends SuperEmptyClass { }
+
+Which constructor is provided to EmptyClass by the compiler?
+	public EmptyClass() {}
+X	public EmptyClass() { super();}
+	public EmptyClass(Object obj) {}
+	public EmptyClass(Object obj) { super(obj);}
+
+-------------------------------------
+
+Which statement is true about default constructors?
+	Default constructors include only a single parameter.
+X	Default constructors include an invocation of the superclass.
+	All classes are provided a default constructor by the compiler.
+	Superclass constructors automatically invoke default constructors of subclasses.
+
+
+	
+	------------------------
+	
+	FINE 70 DOMANDE
+	
+	----------------------
+	
+	
+
+Given:
+
+public class PrinterClass {
+     private String arg;
+     public PrinterClass() { System.out.println("no args"); }
+     public PrinterClass(String arg) {
+          this();
+          this.arg = arg;
+          System.out.println("arg");
+     }
+     public void print() {
+          System.out.println(arg);
+     }
+     public static void main(String[] args) {
+          new PrinterClass().print();
+     }
+}
+
+What is the result?
+	arg
+	arg
+		null
+	no args
+X	no args
+		null
+
+		----------------------------
+		
+		
+
+
+Given:
+
+class Job {
+     private String name;
+     private String[] reqs;
+     public Job(String name, String... reqs) {
+          this.name = name;
+          this.reqs = reqs;
+     }
+     public void post() {/*Implementation omitted*/}
+     private void post(char[] rawData) {/*Implementation omitted*/}
+}
+
+class Programmer extends Job {
+     private String[] languages;
+     public Programmer(String name, String... reqs) {super(name, reqs);}
+     public void post(String language) {
+          //Insert code here
+     }
+}
+
+Which statement, when inserted in the code, will compile?
+X	post();
+	post(language.toCharArray());
+	this();
+	this(languages.toCharArray());
+
+	
+	-------------------------
+	
+	
+
+Given:
+
+class Job {
+     private String name;
+     private String[] reqs;
+     public Job(String name, String... reqs) {
+          this.name = name;
+          this.reqs = reqs;
+     }
+     public void post() {/*Implementation omitted*/}
+     //insert code here
+}
+
+class Programmer extends Job {
+     private String language;
+     public Programmer(String name, String... reqs) {super(name, reqs);}
+     public void post(String language) {
+          post();
+          post(language.toCharArray());
+     }
+}
+
+Which method, when inserted in the code, will compile?
+	private void post(char[] rawData) {/*Implementation omitted*/}
+X	protected void post(char[] rawData) {/*Implementation omitted*/}
+	public void post(String rawData) {/*Implementation omitted*/}
+	void post(String rawData) {/*Implementation omitted*/}
+
+	
+	---------------------------
+	
+	
+
+Which access modifier will permit access to class members only from subclasses and other classes in the same package?
+	private
+X	protected
+	public
+	no modifier
+
+	
+	--------------------------
+	
+	Given:
+
+public class CardHand {
+     public Card[] cards;
+     public int handValue;
+
+     public CardHand(Card... cards) {
+          this.cards = cards;
+          for (Card c: cards) {
+               handValue += c.getVal();
+          }
+     }
+     private int getVal() {return handValue;}
+}
+
+Which two statements are true about encapsulation in the CardHand class?
+	If the handValue field is invariant, then the cards field should be declared with the modifier private.
+X	If the handValue field is invariant, then the cards and handValue fields should be declared with the modifier private.
+	If the handValue field is invariant, then the cards and handValue fields and constructor should be declared with the modifier private.
+X	The getVal method should be declared with the modifier public.
+	The class should be declared with the modifier private.
+
+	
+	----------------------------
+	
+	
+
+
+Which of the following code fragments uses a properly encapsulated class?
+X	new Container(4,5).getTotalItems();
+	new Container(4,5).totalItems = 4 * 5;
+	Container cn = new Container(4,5);
+		for (int i = 0; i < cn.getTotalCompartments(); i++) cn.totalItems += cn.getCompartmentItems(i);
+	Container cn = new Container(4,5);
+		for (int i = 0; i < cn.compartments.size(); i++) cn.totalItems += cn.compartments.get(i);
+
+--------------------
+
+
+
+Given:
+
+public class Container {
+     ArrayList<Integer> compartments;
+     private int totalItems;
+     public Container(int numCompartments) {
+          compartments = new ArrayList<>(numCompartments);
+     }
+     //Other code omitted
+}
+
+This class is intended to calculate the total number of items within each compartment. Which statement is true about encapsulation in the Container class?
+	This class is properly encapsulated, but the access modifier on the constructor should be changed to private.
+	This class is properly encapsulated, but the access modifier on the compartments field should be changed to public.
+X	This class is poorly encapsulated. The totalItems field should be calculated in the constructor and in any methods that modify the compartments field.
+	This class is poorly encapsulated. The compartments field should be set in any methods that modify the totalItems field.
+
+	
+	--------------------
+	
+	
+
+Which statement is true about passing arguments to a method?
+	If the argument is an object reference, then the method will work with a copy of that object.
+	If the argument is a primitive value, then the method will work with the original value.
+X	If the argument is a primitive value, then any modifications to the original value will not persist after the method returns.
+	If the argument is an object reference, then any modifications to the original object will be discarded after the method returns.
+	
+	--------------------
+	
+	
+
+Given:
+
+public class Java8 {
+
+     static int modify (int i) {
+           i += 10;
+           return i + 10;
+     }
+     public static void main(String[] args) {
+          int i = 10;
+          //insert code here
+     }
+}
+
+Which statement(s) should be inserted in the code to output 30?
+X	System.out.println(modify(i));
+	System.out.println(modify(i + 10));
+	modify(i); System.out.println(i);
+	modify(i); System.out.println(i + 10);
+
+	
+	-----------------------	
+	
+
+Which of the following is a benefit of using inheritance in Java?
+	Platform independence
+	Encapsulation
+X	Code reuse
+	Class decoupling
+
+
+
+-----------------------
+
+
+
+Given:
+
+public class Job {
+     public void post() {/*Implementation omitted*/}
+     protected void post(char[] rawData) {/*Implementation omitted*/}
+}
+
+Which two are valid declarations of a method that overrides post?
+	public void post(String language)
+	private void post(String language)
+X	public void post()
+X	public void post(char[] data)
+	private void post(char[] data)
+	public String post()
+
+	
+	-----------------------------
+	
+	
+
+Given:
+
+public class SuperString {
+     public String toString() {
+          return "Super String";
+}
+     public Object toString(String str) {
+          return "Super " + str;
+     }
+}
+
+class SubString extends SuperString {
+     public String toString() {
+          return "Sub String";
+     }
+     public String toString(String str) {
+          return "Sub " + str;
+     }
+}
+
+Which two statements will generate the output Super String?
+	System.out.println(new SubString().toString());
+X	System.out.println(new SuperString().toString("String"));
+	System.out.println(((Object) new SubString()).toString());
+X	System.out.println(((Object) new SuperString()).toString());
+	System.out.println(((Object) new SubString()).toString("String"));
+	System.out.println(((Object) new SuperString()).toString("String"));
+
+	
+	-----------------------
+	
+	
+
+Given:
+
+public class SuperString {
+     public String toString() {
+          return "Super String 1";
+     }
+     public Object toString(String str) {
+          return "Super String 2";
+     }
+}
+
+class SubString extends SuperString {
+     public String toString() {
+          return "Sub String 1";
+     }
+     public String toString(String str) {
+          return "Sub String 2";
+     }
+     public static void main(String[] args) {
+          SuperString string = new SubString();
+          System.out.println(string);
+     }
+}
+
+What is the result?
+X	Sub String 1
+	Sub String 2
+	Super String 1
+	Super String 2
+	Compilation fails.
+	An exception is thrown at run time.
+
+	
+	---------------------
+	
+	Given:
+
+Writer writer = new Programmer();
+
+Assuming that Programmer is a subclass of Writer, which statement executes a method found only in the Programmer class?
+	writer.write();
+	((Writer) writer).write();
+	writer.learnLanguage("Java");
+X	((Programmer) writer).learnLanguage("Java");
+
+	
+	----------------
+	
+	
+
+Given:
+
+public interface Shape {
+     public long getArea();
+     public int getPerimeter();
+}
+public class Rectangle implements Shape {
+     //implementation omitted
+     public int getWidthLength() {return width;}
+     public int getHeightLength() {return height;}
+     public long getArea() {return width * height;}
+     public int getPerimeter() {return 2 * (width + height);}
+     public double getAngle() {return angle1;}
+}
+public class Square extends Rectangle {
+     //implementation omitted
+     public int getSideLength() {return side;}
+}
+public class Rhombus extends Square {
+     //implementation omitted
+     public double getAngle1() {return angle1;}
+     public double getAngle2() {return angle2;}
+     public static void main(String[] main) {
+          Shape sh = new Rhombus(5,65, 115);
+     }
+}
+
+Which methods are available when using the sh variable? (Choose all that apply.)
+X	getArea
+	getAngle
+	getAngle1
+	getAngle2
+X	getPerimeter
+	getSideLength
+	getWidthLength
+	getHeightLength
+
+	
+	---------------------
+	
+	Given:
+
+public class OutputSuperClass {
+     OutputSuperClass() {
+          System.out.println("Super");
+     }
+}
+
+public class OutputSubClass extends OutputSuperClass {
+     OutputSubClass () {
+          //insert code here
+          System.out.println("Sub");
+     }
+}
+
+Which statement, when inserted in the code, will generate the output Super?
+	this();
+X	super();
+	this.OutputSuperClass();
+	super.OutputSuperClass();
+
+	
+	----------------------
+	
+	
+
+Which two statements are true about the this keyword?
+	The this keyword can access all superclass constructors.
+	The this keyword can access all superclass members.
+X	The this keyword can invoke overridden methods in the same class.
+X	The this keyword can invoke overloaded methods in the same class.
+
+	
+	----------------------
+	
+	
+
+Given:
+
+public abstract class ShiftCipher {
+     public abstract String encrypt(String plaintext,int shift);
+     public abstract String decrypt(String ciphertext,int shift);
+}
+
+Which two types use ShiftCipher correctly?
+
+	public interface AutoShiftCipher implements ShiftCipher {
+     public byte[] encrypt(byte[] plaintext);
+     public byte[] decrypt(byte[] ciphertext);
+}
+	public interface AutoShiftCipher extends ShiftCipher {
+     public byte[] encrypt(byte[] plaintext);
+     public byte[] decrypt(byte[] ciphertext);
+}
+X	public class TextCaesarCipher extends ShiftCipher {
+     public String encrypt(String plaintext, int shift) {/*implementation omitted*/}
+     public String decrypt(String ciphertext, int shift) {/* implementation omitted */}
+}
+X	abstract class ByteCaesarCipher extends ShiftCipher {
+     public String encryptAndDecrypt(String txt) {/*implementation omitted*/}
+}
+	public class ByteCaesarCipher implements ShiftCipher {
+     public byte[] encrypt(byte[] plaintext, int shift) {/*implementation omitted*/}
+     public byte[] decrypt(byte[] ciphertext, int shift) {/* implementation omitted */}
+}
+
+
+------------------------
+
+
+
+Given the following code:
+
+public interface Card {}
+public abstract class PlayingCard implements Card {}
+public class PokerCard extends PlayingCard {}
+public class FlashCard implements Card {}
+public class NoteCard implements Card {}
+
+public class Game {
+     public static void main(String[] args) {
+          //insert code here
+          System.out.println((c instanceof Card) ? "Card!" : "Not Card?" );
+          System.out.println((c instanceof PlayingCard) ? "PlayingCard!" : "Not PlayingCard?" );
+          System.out.println((c instanceof FlashCard) ? "FlashCard!" : "Not FlashCard?" );
+          System.out.println((c instanceof NoteCard) ? "NoteCard!" : "Not NoteCard?" );
+     }
+}
+
+Given the following output:
+
+Card!
+Not PlayingCard?
+FlashCard!
+Not NoteCard?
+
+Which statement, when inserted in the code, will generate the required output?
+
+	Card c = new PlayingCard();
+	Card c = new PokerCard();
+	Card c = new NoteCard();
+X	Card c = new FlashCard();
+
+	
+	---------------------------
+	
+	
+
+Given the following code:
+
+public interface Card {}
+public abstract class PlayingCard implements Card {}
+public class PokerCard extends PlayingCard {}
+public class FlashCard implements Card {}
+public class NoteCard implements Card {}
+
+public class Game {
+     public static void main(String[] args) {
+          //insert code here
+          System.out.println((c instanceof Card) ? "Card!" : "Not Card?" );
+          System.out.println((c instanceof PlayingCard) ? "PlayingCard!" : "Not PlayingCard?" );
+          System.out.println((c instanceof FlashCard) ? "FlashCard!" : "Not FlashCard?" );
+          System.out.println((c instanceof NoteCard) ? "NoteCard!" : "Not NoteCard?" );
+     }
+}
+
+Given the following output:
+
+Card!
+PlayingCard!
+Not FlashCard?
+Not NoteCard?
+
+Which statement, when inserted in the code, will generate the required output?
+
+X	Card c = new PokerCard();
+	NoteCard c = new PlayingCard();
+	FlashCard c = new PokerCard();
+	PokerCard c = new PlayingCard();
+
+	
+	----------------------------
+	
+	
+
+Given:
+
+public void copy(Path srcFile, Path destFile) {
+     try {
+          byte[] readBytes = Files.readAllBytes(srcFile);
+          Files.write(destFile, readBytes);
+     } catch (______________ e ) {
+          System.err.println(e.toString());
+     }
+}
+
+Which insertion will allow the code to compile?
+	Error
+	IOError
+X	IOException
+	FileNotFoundException
+	FileSystemNotFoundException
+
+	
+	--------------------------
+	
+	
+Which of the following statements is true about the catch and specify requirement for exceptions?
+	All Throwable objects must be caught or specified for method code to compile.
+	All Exception objects must be caught or specified for method code to compile.
+	All RuntimeException objects must be caught or specified for method code to compile.
+X	All Exception objects, excluding RuntimeException objects, must be caught or specified for method code to compile.
+
+	
+	-------------------------
+	
+	
+
+Which statement is true about exception propagation?
+	If an exception is thrown in a try block, the code continues its normal execution.
+X	Whether an exception is thrown or not thrown in a try block, the code in the finally block will execute.
+	If an exception is specified, then that exception will not be propagated up the call stack.
+	If an exception is caught, then that exception is propagated down the call stack automatically.
+	
+	--------------------------
+	
+	
+
+Given:
+
+public class ExceptionFun {
+     public ExceptionFun(Object obj) {
+          if (obj == null) 
+               throw new IllegalArgumentException("Provide an object!");
+          System.out.println(obj + " created!");
+     }
+     public static void createObject() {
+          try {
+               ExceptionFun obj = new ExceptionFun(null);
+          } finally {
+               System.out.println("Was the object created?");
+          }
+     }
+     public static void main(String[] args) {
+          createObject();
+     }
+}
+
+What is the result?
+	ExceptionFun is created!
+	ExceptionFun is created!
+		Was the object created?
+	is created!
+	is created!
+		Was the object created?
+	Compilation fails.
+X	An exception is thrown at run time.
+
+	
+	---------------------------
+	
+	
+
+What is a key advantage of exception handling in Java?
+X	Classifying types of errors
+	Not catching unnecessary exceptions
+	Having only one exception type
+	Reducing the number of syntax errors
+
+
+	
+	-----------------------
+	
+	
+	
+
+Which two method declarations will compile if their implementation code throws an UnsupportedOperationException?
+X	void trySomething (OperationType op)
+	void trySomething (OperationType op) throw ReadOnlyBufferException
+X	void trySomething (OperationType op) throws UnsupportedOperationException
+	void trySomething (OperationType op) throw BadStringOperationException
+
+	
+	--------------------
+	
+	
+
+Given:
+
+public class ExceptionHandling {
+     public static void trySomething () throws FileNotFoundException {
+          //implementation omitted
+     }
+     public static void main (String[] args) throws IOException {
+          //insert code here
+     }
+}
+
+Which fragment should be inserted in the code for the program to compile?
+X	trySomething();
+	try {
+		trySomething();
+		}
+	try {
+		trySomething();
+		} finally {
+		throw new Exception();
+		}
+	try {
+		trySomething();
+		} catch (FileNotFoundException ex) {
+		throw new Exception();
+	}
+
+
+--------------------
+
+
+
+Given the following code:
+
+int num1=20;
+int num2=0;
+int solution = num1/num2;
+System.out.println(solution);
+
+What will be the output?
+	0
+	20
+	200
+X	ArithmeticException
+
+	
+	--------------------
+	
+	
+
+Given the following code:
+
+String number1="Eleven";
+Object newObj = number1;
+Integer number2=(Integer)newObj;
+System.out.println(number2);
+
+What will be the output?
+	11
+	Eleven
+	ArithmeticException
+X	ClassCastException
+
+	
+	--------------------
+	
+	Given:
+
+public class Java8_I {
+     public static void main (String[] args) {
+          StringBuilder sb = new StringBuilder("Test");
+          System.out.println(sb.length());
+     }
+}
+
+What is the result when this program is executed?
+X	4
+	12
+	16
+	20
+
+	
+	-----------------------
+	
+Which statement is true about string manipulation?
+X	String objects cannot be modified once they are created.
+	String objects are stored as variable-length arrays of characters.
+	Manipulation methods in the StringBuilder class create and return new String objects.
+	Manipulation methods in the String class accept StringBuilder objects.
+
+
+	-------------------------
+	
+	Given:
+
+String str = "Goodbye, Dog";
+
+Which code fragment will output Good, Dog?
+	str.delete(4,8);
+		System.out.println(str);
+	str.replace("bye","");
+		System.out.println(str);
+X	String strNew = str.replace("bye","");
+		System.out.println(strNew);
+	String strNew = str.delete(4,8);
+		System.out.println(strNew);
+		
+		---------------------
+		
+		Given the following code:
+
+LocalDate day = LocalDate.of(2015, Month.MAY, 27);
+day.plusDays(30);
+System.out.println(day);
+
+What is the output?
+X	May 27, 2015
+	June 26, 2015
+	June 27, 2015
+	June 27, 2016
+
+	
+	---------------------------
+	
+	Given the following code:
+
+LocalDate day = LocalDate.of(2015, Month.JUNE, 20);
+day=day.plusHours(24);
+System.out.println(day);
+
+What is the output?
+	21 June, 2015
+	20 June 2015
+	20 July 2015
+X	Does not compile
+
+	
+	-----------------------
+	
+	
+
+Which statement is true about using ArrayList objects?
+	ArrayList objects require less memory than arrays.
+	ArrayList objects provide better performance than arrays.
+X	ArrayList objects require less low-level implementation than arrays.
+	ArrayList objects are fixed in size and not resizable like arrays.
+
+	
+	------------------------
+	
+	
+
+Given the following:
+
+public class VarScope {
+     int i1;
+     public static void main (String[] args) {
+          VarScope scope = new VarScope();
+          scope.printVar(); //line 1
+          int i2 = i1; //line 2
+          int i3 = i2; //line 3
+     }
+     private void printVar() {
+          System.out.println(i1); //line 4
+     }
+}
+
+Which line causes a compilation error?
+	line 1
+X	line 2
+	line 3
+	line 4
+
+	
+	------------------------
+	
+	Given the following class:
+
+1.     public class Machine {
+2.          static String manufacturer;
+3.          public static void main (String[] args) {
+4.               //Insert code here
+5.          }
+6.     }
+
+Which three code fragments correctly assign a value to the manufacturer field at line 4?
+X	manufacturer = "Oracle";
+	this.manufacturer = "Oracle";
+	super.manufacturer = "Oracle";
+X	Machine.manufacturer = "Oracle";
+X	Machine myMachine = new Machine();
+		myMachine.manufacturer = "Oracle";
+
+		
+		-------------------------
+		
+		
+
+
+Which statement is true about the object life cycle?
+	The declaration must call the class constructor.
+X	The instantiation must use the new keyword.
+	The initialization must specify the object variable name.
+	The programmer must explicitly destroy objects.
+
+	
+	---------------------
+	
+	
+	
+
+Given the following:
+
+public class Java8_I {
+     public static void main (String[] args) {
+          int i = 1;
+          System.out.println((3 + i) * 6 ^ 2);
+     }
+}
+
+What is the result when this program is executed?
+	11
+X	26
+	39.0
+	144.0
+
+	
+	-------------------------
+	
+	
+
+
+Given the following:
+
+switch (x) {
+     case y:
+          System.out.println("Too low.");
+          break;
+     case z:
+          System.out.println("Just right.");
+          break;
+}
+
+Which two data types are valid for the variable x and the constants y and z?
+X	int
+	double
+	float
+X	String
+	Double
+	Float
+
+	
+	---------------------
+	
+	
+
+Given the following output:
+
+i: 0
+i: 3
+i: 6
+
+Which three code fragments generate this output?
+X	for (int i = 0; i < 8;) {
+     System.out.println("i: " + i);
+     i += 3;
+}
+X	for (int i = 0; i < 8; i += 3) {
+     System.out.println("i: " + i);
+}
+X	for (int i = 0; i < 8; i += 2) {
+     System.out.println("i: " + i);
+     i++;
+}
+	for (int i = 0; i < 8; i++) {
+     i += 2;
+     System.out.println("i: " + i);
+}
+	for (int i = 0; i < 8;) {
+     i += 3;
+     System.out.println("i: " + i);
+}
+	for (int i = 0; i < 8; i += 2) {
+     i++;
+     System.out.println("i: " + i);
+}
+
+-----------------------
+
+
+
+Given the following code fragment:
+
+do {
+     //code here
+} while ( false );
+
+What is the result?
+X	The code in the do-while block executes once.
+	The code in the do-while block executes repeatedly in an infinite loop.
+	The code in the do-while block never executes.
+	The code fails compilation.
+	The code throws a runtime exception.
+
+	
+	--------------
+	
+	
+
+Given:
+
+class CardDeck {
+     public CardDeck get(int suits, boolean includeJokers) { /*code omitted*/ }
+}
+
+Which change will prevent other classes from directly instantiating the CardDeck class?
+	Adding the private modifier to the class
+	Adding the protected modifier to the class
+X	Adding a parameterless constructor with the private modifier to the class
+	Adding a parameterless constructor with no modifier to the class
+	Changing the public modifier to protected on the get method
+	Changing the public modifier to private on the get method
+
+	
+	---------------------
+	
+	
+
+Which statement is true about applying encapsulation principles to a class?
+X	The default modifier should be private for all fields.
+	The default modifier should be protected for all fields.
+	Accessor methods should return direct references to field objects.
+	Mutator methods should return direct references to field objects.
+
+
+	
+	--------------------
+	
+	Given:
+
+public interface Shape {
+     public long getArea();
+     public int getPerimeter();
+}
+public class Rectangle implements Shape {
+     //implementation omitted
+     public int getWidthLength() {return width;}
+     public int getHeighLength() {return height;}
+     public long getArea() {return width * height;}
+     public int getPerimeter() {return 2 * (width + height);}
+     public double getAngle() {return angle1;}
+}
+public class Square extends Rectangle {
+     //implementation omitted
+     public int getSideLength() {return side;}
+}
+public class Rhombus extends Square {
+     //implementation omitted
+     public double getAngle1() {return angle1;}
+     public double getAngle2() {return angle2;}
+     public static void main(String[] main) {
+          Shape sh = new Rhombus(5,65, 115);
+          Square sq = (Square) sh;
+     }
+}
+
+Which methods are available when using the sq variable? (Choose all that apply.)
+X	getArea
+X	getAngle
+	getAngle1
+	getAngle2
+X	getPerimeter
+X	getSideLength
+X	getWidthLength
+X	getHeightLength
+
+	
+	---------------------------
+	
+The super keyword always references the implementation found in the ___________.
+	interface
+	subclass
+X	superclass
+	current class
+
+	
+	-------------------------
+	
+	
+
+
+Which statement is true about interfaces?
+
+X	An interface may contain only abstract, default or static methods and class constants.
+	An interface can implement methods defined by other interfaces.
+	Interfaces support class instantiation, just as concrete classes do.
+	Interfaces do not support overloaded and overridden methods.
+
+	
+	---------------------------
+	
+	
+
+Given:
+
+public String messWithString(String str)
+  throws StringIndexOutOfBoundsException {
+     //implementation omitted
+}
+
+Which handling action is required when invoking the messWithString method for the code to compile?
+X	No handling action is required.
+	Catch StringIndexOutOfBoundsException.
+	Specify StringIndexOutOfBoundsException.
+	Invoke the method within a try block without an associated catch or finally block.
+
+	
+	----------------------------
+	
+	
+
+Given:
+
+public class Java8_I {
+     public static void main (String[] args) {
+          StringBuilder sb = new StringBuilder("DataDataDataDataData");
+          sb.delete(0,sb.length());
+          System.out.println(sb.capacity());
+     }
+}
+
+What is the result when this program is executed?
+	0
+	16
+	20
+X	36
+
+	
+	--------------------------------
+	
+	
+
+Given the following command:
+
+java CommandLineClass 1,2,3,4 5:6 7
+
+Which expression will retrieve the argument 7 when used in the main method?
+X	args[2]
+	args[3]
+	args[6]
+	args[7]
+
+	
+	---------------------------------
+	
+	
+
+What does platform-independence mean in Java?
+X	Running a Java program on any system
+	Reusing code to extend functionality
+	Creating classes and objects to represent real-world things
+	Restricting access to only public methods of a class
+
+	
+	-------------------------------
+	
+	
+
+Given the following:
+
+public class Java8_I {
+     public static void main (String[] args) {
+          int x = 1;
+          modifyVar(x + 5);
+          System.out.println("x: " + x);
+     }
+     public static void modifyVar(int var) {
+          var = 10;
+     }
+}
+
+What is the result when this program is executed?
+X	x: 1
+	x: 6
+	x: 10
+	x: 16
+
+	
+	-----------------------------
+	
+	
+
+Given the following:
+
+public class Java8_I {
+     static class RefType {
+          int val;
+          RefType(int val) {this.val = val;}
+     }
+
+     public static void main (String[] args) {
+          RefType x = new RefType(1);
+          modifyVar(x);
+          x.val = x.val + 5;
+          System.out.println("x: " + x.val);
+     }
+     public static void modifyVar(RefType var) {
+          var.val = 10;
+     }
+}
+
+What is the result when this program is executed?
+	x: 1
+	x: 6
+	x: 10
+X	x: 15
+
+	
+	----------------------------------
+	
+	Click the Exhibit(s) button.
+
+Given the following:
+
+public class Java8_I {
+     static Customer cust;
+     public static void main (String[] args) {
+          cust.id = 1;
+          cust.name = "Jessica Martinez";
+          cust.display();
+     }
+}
+
+What is the result?
+	Jessica Martinez (1) is preferred.
+	Jessica Martinez (1) is not preferred.
+X	A runtime error is produced.
+	A compile error is produced.
+
+	
+	-------------------------------------
+	
+	
+	
+
+Given the following code fragment:
+
+Customer cust = new Customer();
+
+Which part of the statement instantiates the Customer object?
+X	new
+	cust
+	Customer cust
+	Customer()
+
+	
+	-----------------------------
+	
+	
+	public class JavaSETest {
+     public static void main(String[] args) {
+          int number = Integer.parseInt("Number 1");
+          System.out.println(number);
+     }
+}
+
+What is the output of the preceding code?
+	1
+	Number 1
+	Number
+X	NumberFormatException
+
+	
+	---------------------------
+	
+	
+	
+
+Given the following:
+
+int i = 10;
+
+Which two expressions evaluate to 3?
+X	(i + 5) - 6 * 10 / 5
+	i + (5 - 6) * 10 / 5
+	(i + 5 - 6) * 10 / 5
+	i + (5 - 6 * 10) / 5
+X	(i + 5) - 6 * (10 / 5)
+	((i + 5 - 6) * 10) / 5
+
+	
+	----------------------------
+	
+	
+Given the expression:
+
+5 + 10 * 6 / 3 - 2
+
+Which portion of this expression is evaluated first?
+	5 + 10
+X	10 * 6
+	6 / 3
+	3 - 2
+
+	
+	------------------------
+	
+Which operator or method should determine whether two String variables have the same value?
+	==
+	===
+X	equals
+	contentEquals
+	
+	--------------------
+	
+	
+
+Given the following:
+
+if ( x < 10) {
+     if (x != 0)
+          System.out.print("She");
+     else
+          System.out.print("Sally");
+     if (x < 5)
+          System.out.print(" sells seashells");
+     if ( x > 10)
+          System.out.print(" will sell all her seashore shells");
+     else if (x < 15)
+          System.out.print(" by the");
+     else if (x < 20)
+          System.out.print(" on the");
+     if ( x < 10)
+          System.out.print(" seashore");
+     else
+          System.out.print(" seashell shore");
+} else {
+     System.out.print("Of that I'm sure");
+}
+
+Which value for the variable x will output Sally sells seashells by the seashore?
+X	0
+	1
+	5
+	10
+
+	
+	---------------------------
+	
+	
+
+Given the following:
+
+if (x != 0)
+     System.out.print("She");
+else
+     System.out.print("Sally");
+if (x < 5)
+     System.out.print(" sells seashells");
+if ( x > 10)
+     System.out.print(" will sell all her seashore shells");
+if (x < 15)
+     System.out.print(" by the");
+else if (x < 20)
+     System.out.print(" on the");
+if ( x < 10)
+     System.out.print(" seashore");
+else
+     System.out.print(" seashell shore");
+
+Which value for the variable x will output She will sell all her seashore shells on the seashell shore?
+	0
+	10
+X	15
+	20
+
+	
+	----------------------
+	
+	
+
+Given the code fragment:
+
+char[] charArray = { 'e', 's', 'p', 'r', 'e', 's', 's', 'o', '8', '9', '0'};
+System.arraycopy(charArray, 2, charArray, 6, 5); 
+System.out.println(charArray[8]);
+
+What is the result?
+	p
+	r
+X	e
+	8
+	9
+
+	
+	-------------------
+	
+	
+
+Given the following:
+
+char[][] charArray2D = {{'c','u','p'},{'o'},{'f'},{'j','a','v','a'}};
+
+Which two expressions will evaluate to false?
+X	charArray2D.length > 4
+X	charArray2D[0].length < 2
+	charArray2D[1].length < 2
+	charArray2D.getClass().isArray()
+	charArray2D[0].getClass().isArray()
+	charArray2D[1].getClass().isArray()
+
+	
+	-------------------------
+	
+	
+
+Given the following code fragment:
+
+int i1 = 2;
+for (int i2 = 8; i1 < i2; i2 -= 2 ) {
+     System.out.print(++i1 + " ");
+}
+
+What is the result?
+X	3 4
+	4 3
+	8 6
+	6 8
+
+	
+	-------------------------
+	
+	
+
+Given the following output:
+
+8
+5
+2
+-1
+
+Which code fragment generates this output?
+	int x = 10, y = 0;
+		do {
+			x += 2;
+			System.out.println(y - x);
+			y --;
+		} while ( y - x > 0 );
+X	int x = 0, y = 10;
+		do {
+			x += 2;
+			System.out.println(y - x);
+			y --;
+		} while ( y - x > 0 );
+	int x = 10, y = 0;
+		do {
+			x += 2;
+			System.out.println(x - y);
+			y --;
+		} while ( x - y > 0 );
+	int x = 0, y = 10;
+		do {
+			x += 2;
+			System.out.println(x - y);
+			y --;
+		} while ( x - y > 0 );
+
+----------------------
+
+
+
+Given the following:
+
+public class Java8_Looping {
+     public static void main(String[] args) {
+          int intArray[] = { 1, 2, 3, 4, 5};
+          int index = 0;
+          do {
+               while (index < 10)
+                    System.out.print(index++ + " ");
+          } while (index < intArray.length);
+     }
+}
+
+What is the result?
+	Nothing is printed.
+	0 1 2 3 4
+X	0 1 2 3 4 5 6 7 8 9
+	0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
+
+	
+	--------------------------
+	
+	
+	
+
+Given the code fragment:
+
+for (int x = 0; x < 10; x--) {
+     do {
+          System.out.println("Loop!");
+          System.out.println("x:" + x);
+     } while (x++ < 10);
+}
+
+How many times is Loop! printed?
+	9
+	10
+X	11
+	An infinite number
+
+	
+	---------------------------
+	
+	Given the following:
+
+public class Java8_Looping {
+     public static void main(String[] args) {
+          for (int x = 0; x < 6; x-=2) {
+               System.out.println("Outer x: " + x);
+               System.out.print("Inner x:");
+               while (x++ < 7)
+                    System.out.print(" " + x);
+               System.out.println("\nOuter x: " + x);
+          }
+     }
+}
+
+What is the result?
+	Outer x: 0
+		Inner x: 1 2 3 4 5 6
+	Outer x: 0
+		Inner x: 1 2 3 4 5 6 7
+	Outer x: 0
+		Inner x: 1 2 3 4 5 6
+		Outer x: 7
+X	Outer x: 0
+		Inner x: 1 2 3 4 5 6 7
+		Outer x: 8
+
+		
+	-----------------------------
+	
+	
+
+Which is true about branching statements in iterative block?
+	An unlabeled break statement terminates the outermost block.
+	A labeled break statement terminates only the innermost block.
+X	A return statement that does not return a value terminates all blocks in the current method.
+	A continue statement terminates only for and switch blocks.
+
+	
+	--------------------------
+	
+	
+
+Which two characteristics distinguish overloaded methods?
+	Access modifiers
+	Method name
+	Return type
+X	Parameter number
+X	Parameter data types
+	
+	--------------------
+	
+	
+	
+	
+
+Given the following code line:
+
+printToConsole(1.2);
+
+Which overloaded method is invoked?
+	void printToConsole(float fl) {
+     System.out.println("My float is " + fl);
+}
+X	void printToConsole(Double dblObj) {
+     System.out.println("My double object is " + dblObj.toString());
+}
+	void printToConsole(Integer intObj) {
+     System.out.println("My integer object is " + intObj.toString());
+}
+	void printToConsole(Object obj) {
+     System.out.println("My object is " + obj.toString());
+}
+
+-------------------
+
+Given:
+
+public class Factorial {
+     public static int get() {
+          return 1;
+     }
+     public static int get(int n) {
+          int fact = get();
+          for (int i = n; i > 1; i--) {
+               fact *= i;
+          }
+          return fact;
+     }
+     public static int get(int n, int k) {
+          return get(n) / get(n-k);
+     }
+}
+
+Which code line will generate the output 120?
+	System.out.print(Factorial.get());
+X	System.out.print(Factorial.get(5));
+	System.out.print(Factorial.get(10));
+	System.out.print(Factorial.get(10,5));
+
+	
+	------------------------------
+	
+	Given:
+
+public class OutputSuperClass {
+     public OutputSuperClass() {
+          System.out.println("Super");
+     }
+}
+
+public class OutputSubClass extends OutputSuperClass {
+     public OutputSubClass () { 
+          System.out.println("Sub 1");
+     }
+     public OutputSubClass (int x) { 
+          System.out.println("Sub 2");
+     }
+     public OutputSubClass (int x, int y) {
+          System.out.println("Sub 3");
+     }
+     public static void main(String[] args) {
+          new OutputSubClass(1,2);
+     }
+}
+
+What is the result?
+	Sub 1
+	Sub 3
+X	Super
+		Sub 1
+X	Super
+		Sub 3
+
+		
+	-------------------------------------
+	
+	
+
+Given:
+
+public interface Job {
+     public void post();
+     void post(char[] rawData);
+}
+
+Which two are valid declarations of methods that implement post?
+	public void post(String language)
+	private void post(String language)
+X	public void post()
+X	public void post(char[] data)
+	private void post(char[] data)
+	public String post()
+
+	
+	--------------------------------
+	
+	
+
+Given:
+
+public abstract class Writer {
+     public void write() {System.out.println("Writing...");}
+}
+public class Author extends Writer {
+     public void write() {System.out.println("Writing book");}
+}
+public class Programmer extends Writer {
+     public void write() {System.out.println("Writing code");}
+     public static void main(String[] args) {
+          Writer w = new Programmer();
+          w.write();
+     }
+}
+
+What is the result?
+	Writing...
+	Writing book
+X	Writing code
+	Compilation fails.
+	An exception is thrown at run time.
+	
+	------------------------------
+	
+	
+
+Given the code fragment:
+
+CharSequence obj = new StringBuilder ( new String("String") );
+
+Which is the reference type?
+	Object
+	String
+X	CharSequence
+	StringBuilder
+
+	
+	-----------------------------
+	
+	
+
+Which statement is true about reference and object types?
+	The reference type corresponds to the instantiated class.
+	The object type corresponds to the type in the variable declaration.
+X	The reference type determines which members are accessible.
+	The object type determines which hidden members are accessible.
+
+	
+	------------------------------
+	
+	
+Which statement is true about reference type casting?
+	Reference type casting is only valid between subtypes.
+	Reference type casting is only valid between supertypes.
+	The target type must be the object type or a valid subtype.
+X	The target type must be the object type or a valid supertype.
+
+	
+	-------------------------------
+	
+	
+
+Given:
+
+public class OutputSuperClass {
+     OutputSuperClass() {
+          System.out.println("Super");
+     }
+}
+
+public class OutputSubClass extends OutputSuperClass {
+     OutputSubClass () {
+          System.out.println("Sub 1");
+     }
+     OutputSubClass (int x) {
+          //insert code here
+          System.out.println("Sub 2");
+     }
+}
+
+Which statement, when inserted in the code, will generate the output Sub 1?
+X	this();
+	super();
+	this.OutputSubClass();
+	super.OutputSubClass();
+
+	
+	--------------------------------
+	
+	
+
+Given:
+
+public enum Suit {CLUBS, DIAMONDS, HEARTS, SPADES}
+public class Card {
+     private Suit suit;
+     private int value;
+     public Card(Suit suit, int value) {
+          //insert code here
+     }
+     public String toString() {
+          return value + " of " + suit;
+     }
+     public static void main(String[] args) {
+          System.out.println(new Card(Suit.CLUBS, 2));
+     }
+}
+
+Which statement(s), when inserted in the code, will generate the output 2 of CLUBS?
+	super(suit, value);
+	this(suit, value);
+	super.suit = suit; super.value = value;
+X	this.suit = suit; this.value = value;
+
+	
+	------------------------------------
+	
+	
+
+Given:
+
+public interface ShiftCipher {
+     String encrypt(String plaintext ,int shift);
+     String decrypt(String ciphertext, int shift);
+     default int getRandomShift(int max) {
+          return (new Random()).nextInt(max) + 1;
+     }
+}
+
+Which two types use ShiftCipher correctly?
+
+	public interface AutoShiftCipher implements ShiftCipher {
+     public byte[] encrypt(byte[] plaintext);
+     public byte[] decrypt(byte[] ciphertext);
+}
+X	public interface AutoShiftCipher extends ShiftCipher {
+     public byte[] encrypt(byte[] plaintext);
+     public byte[] decrypt(byte[] ciphertext);
+}
+	public class CaesarCipher extends ShiftCipher {
+     public String encrypt(String plaintext, int shift) {/*implementation omitted*/}
+     public String decrypt(String ciphertext, int shift) {/* implementation omitted */}
+}
+X	public abstract class CaesarCipher implements ShiftCipher {
+     public String encryptAndDecrypt(String txt) {/*implementation omitted*/}
+     public int getRandomShift(int max) {/*implementation omitted*/}
+}
+	public class CaesarCipher implements ShiftCipher {
+     public byte[] encrypt(byte[] plaintext, int shift) {/*implementation omitted*/}
+     public byte[] decrypt(byte[] ciphertext, int shift) {/* implementation omitted */}
+}
+
+---------------------------------
+
+
+
+Given:
+
+public void copy(Path srcFile, Path destFile) throws ______________{
+     byte[] readBytes = Files.readAllBytes(srcFile);
+     Files.write(destFile, readBytes);
+}
+
+Which insertion will allow the code to compile?
+	Error
+	IOError
+X	IOException
+	FileNotFoundException
+	FileSystemNotFoundException
+
+	
+	-----------------------------------
+	
+	
+
+Given:
+
+public class ExceptionFun {
+     public ExceptionFun(Object obj) {
+          if (obj == null) 
+               throw new IOException("Provide an object!");
+          System.out.println(obj + " created!");
+     }
+     public static void createObject() {
+          try {
+               ExceptionFun obj = new ExceptionFun(null);
+          } finally {
+               System.out.println("Was the object created?");
+          }
+     }
+     public static void main(String[] args) {
+          createObject();
+     }
+}
+
+What is the result?
+	ExceptionFun is created!
+	ExceptionFun is created!
+		Was the object created?
+	is created!
+	is created!
+		Was the object created?
+X	Compilation fails.
+	An exception is thrown at run time.
+
+	
+	----------------------------
+
+
+	
+	
+
+Given:
+
+public class ExceptionHandling {
+     public static void trySomething () throws FileNotFoundException {
+          //implementation omitted
+     }
+     public static void main (String[] args){
+          //insert code here
+     }
+}
+
+Which fragment should be inserted in the code for the program to compile?
+	trySomething();
+	try {
+     trySomething();
+}
+	try {
+     trySomething();
+} finally {
+     System.err.println("File NOT found!");
+}
+X	try {
+		trySomething();
+		} catch (IOException ex) {
+		System.err.println(ex);
+		}
+	
+	
+	------------------------------------
+	
+	
+
+Which exception class indicates that a character index is either negative or not less than the length of a string?
+	BadIndexBoundsException
+	BadStringOperationException
+	CharIndexOutOfBoundsException
+X	StringIndexOutOfBoundsException
+
+	
+	-----------------------------
+	
+	
+	
+	Given:
+
+public class RuntimeExceptionTests {
+     public static char performOperation(String str) {
+          return str.charAt(0);
+     }
+     public static void main (String[] args) {
+          performOperation(null);
+     }
+}
+
+Which exception is thrown by running the given code?
+X	NullPointerException
+	IndexOutOfBoundsException
+	ArrayIndexOutOfBoundsException
+	StringIndexOutOfBoundsException
+
+	
+	--------------------------
+	
+	
+
+Given the following code:
+
+LocalTime now = LocalTime.of(12, 10, 30);
+LocalDate day = LocalDate.of(2015, Month.MAY, 27);
+LocalDateTime today = LocalDateTime.of(day, now);
+System.out.println(today.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+
+What is the output?
+	12:10
+	12:10:30
+	2015-05-27
+X	2015-05-27T12:10:30
+
+	
+	-------------------------
+	
+	
+
+Given the following code fragment:
+
+public class TestArrayList {
+     public static void main (String[] args) {
+          ArrayList<String> names = new ArrayList<>(2);
+          names.add("Amy");
+          names.add("Anne");
+          names.add("Jason");
+          System.out.println(names.get(3));
+     }
+}
+
+What is the result?
+	Code compilation fails.
+X	Code throws a runtime exception.
+	Anne
+	Jason
+
+	
+	--------------------------
+	
+	
+
+Consider the following code:
+
+private static void printEvenNumbers(List<Number> numbers, checkifEven checkE){}
+
+This utilizes an interface to check for even numbers called checkifEven. Which interface should you use to check for longs, floats, and doubles?
+	DoublePredict<T>
+	FloatPredicate<T>
+	LongPredicate<T>
+X	Predicate<T>
+
+	
+	----------------------------
+	
+	
+
+Examine the following code.
+
+public class MyInt { 
+     private int value;
+     private boolean isEven;
+
+       public MyInt (int intvalue, boolean even) {
+             value = intvalue;
+             isEven = even;
+          }
+          public boolean evenCheck() {
+             return isEven;
+          }
+      }
+
+    public interface CheckifEven { 
+          boolean check(MyInt mi);
+      }
+
+    public class NumberSearch implements CheckifEven {
+          public boolean check(MyInt mi){
+             return mi.evenCheck();
+          }
+          private static void printEvenNumbers(List<MyInt> numbers, CheckifEven checkE){
+             //Implementation ommitted 
+          }
+          public static void main(String[] args) {
+             List<MyInt> numbers = new ArrayList<MyInt>();
+            numbers.add(new MyInt(0, true));
+            numbers.add(new MyInt(1, false));
+            numbers.add(new MyInt(2, true));
+            numbers.add(new MyInt(3, false));
+            numbers.add(new MyInt(4, true));
+            numbers.add(new MyInt(5, false));
+
+          printEvenNumbers(numbers, new NumberSearch()); // Replace this
+         }
+      }
+
+Which line of code should you replace so that the code executes correctly?   
+X	printEvenNumbers(numbers, g->g.evenCheck());
+	printEvenNumbers(numbers, g->! g.evenCheck());
+	printEvenNumbers(numbers, g->g.evenCheck())
+	printEvenNumbers(numbers, g->evenCheck());
+
+	
+	------------------------------
+	
+	
+
+Which two of the following expressions will compile successfully?
+	number1, number2->number1.isEvenNumber()
+	(number1, number2)->number1.isEvenNumber()
+	number1->{ return number1.isEvenNumber()}
+	(int number1, int number2)->number2.isEvenNumber()
+
+	
+	------------------------------
+	
+	
+	
+
+Given:
+
+public class Pedometer {
+     private double stride;
+     private double[] measurements;
+}
+
+Which code fragment is a method that meets good encapsulation principles?
+	public void getStride(double stride) {
+     stride = this.stride;
+}
+X	public void getStride(double stride) {
+     this.stride = stride;
+}
+	public double[] getMeasurements() {
+     return this.measurements;
+}
+X	public double[] getMeasurements() {
+     return measurements.clone();
+}
+
+------------------------------
+
+
+
+Which type defines a valid interface?
+
+X	public interface HourlyWorker {
+     double minimum_wage = 7.25;
+     void performWork(double hours);
+     default double getNormalWeeklyHours() {
+          return 40;
+     }
+}
+	public interface HourlyWorker {
+     public static double minimum_wage;
+     public void performWork(double hours);
+}
+	public interface HourlyWorker {
+     public static final double minimum_wage = 7.25;
+     public abstract HourlyWorker();
+     public abstract void performWork(double hours);
+}
+	public interface HourlyWorker {
+     public static final double minimum_wage = 7.25;
+     public void performWork(double hours) {
+          //implementation
+     }
+}
+
+---------------------------------
+
+
+
+Which two of these situations best illustrate the advantages of exception handling in Java?
+X	Keeping program and error code separate
+	Sending errors down the method call stack
+X	Grouping errors into general types
+	Reducing the number of syntax errors
+
+--------------------------------
+
+
+
+
+Which of the following lines of code will compile and execute without error? Choose all that apply.
+X	num->num.toString();
+	{num->num.toString()}
+	(Integer num)->return num.toString();
+X	(Integer num)->{return num.toString();}
+
+	
+	-------------------------------
+	
+	
+
+Given the following:
+
+int i2 = i1 + 4;
+System.out.println("i2 = " + i2);
+
+Which line of code declares variable(s) so that this code fragment will compile?
+	int i1;
+	int i1, i2;
+X	int i1 = 0;
+	int i1 = 0, i2 = 0;
+
+	
+	------------------------------------
+	
+	
+
+Given the following:
+
+package games.card;
+
+public class Poker {
+     public void call() {System.out.println("Call!");}
+     public void raise(double amt) {System.out.println("Raise by " + amt);}
+     public void fold() {System.out.println("Fold!");}
+}
+
+and
+
+1.     package java8.app; 
+2.     public class GameApp {
+3.          public static void main(String[] args) {
+4.               //Insert code here
+5.               if (args.length > 0) {
+6.                    if (args[0].equalsIgnoreCase("raise")) {
+7.                         pokerGame.raise(Double.parseDouble(args[1]));
+8.                    } else pokerGame.call();
+9.               } else pokerGame.fold();
+10.          }
+11.     }
+
+Which line of code, when inserted independently at line 4, would enable the code to compile and run?
+	Poker pokerGame = new Poker();
+	games.Poker pokerGame = new games.Poker();
+	card.Poker pokerGame = new card.Poker();
+X	games.card.Poker pokerGame = new games.card.Poker();
+
+	
+	---------------------------------------
+	
+	
+
+Which of the following concepts best defines object encapsulation in Java? (Choose all that apply.)
+X	Hiding private members of a class from other classes
+	Usage of objects in programs
+	Compile once, run anywhere
+X	Restricted access to certain classes
+
+	
+	------------------------------------
+	
+	
+
+Creating an instance of Java data type is related to which one of these concepts?
+	Encapsulation
+	Inheritance
+X	Object-oriented programming
+	Platform-independence
+
+	
+	---------------------------------
+	
+	
+
+Restricting access to only the public methods of a class is related to which one of these concepts in Java?
+	Platform independence
+	Object orientation
+X	Encapsulation
+	Inheritance
+	
+	--------------------------
+	
+	
+	
+	
+
+Given the following:
+
+public class Java8_I {
+  public static void main (String[] args) {
+    int x = 0, y = 0;
+    System.out.println("x: " + x++);
+    System.out.println("y:" + --y);
+  }
+}
+
+What is the result when this program is executed?
+X	x: 0
+		y:-1
+	x: 1
+		y:-1
+	x: 1
+		y:0
+	x: 0
+		y:0
+
+		------------------------------------------
+		
+		Given the following:
+
+int i = 5;
+
+Which two code fragments will output e = mc2?
+	if ( i >= 3) 
+			 System.out.print("e ");
+		else if (i == 5) 
+			 System.out.print("= ");
+		else if (i > 6) 
+			 System.out.print("!= ");
+		else if (i < 6)
+			 System.out.print("mc2");
+		else 
+			 System.out.println("no energy");
+	if ( i >= 3) 
+			 System.out.print("e ");
+		if (i == 5) {
+			 System.out.print("= ");
+		} else {
+			 System.out.print("!= ");
+			 if (i < 6)
+				  System.out.print("mc2");
+			 else
+				  System.out.println("no energy");
+		}
+	if ( i >= 3) 
+			 System.out.print("e ");
+		else if (i == 5) {
+			 System.out.print("= ");
+		} else {
+			 System.out.print("!= ");
+			 if (i < 6)
+				  System.out.print("mc2");
+			 else
+				  System.out.println("no energy");
+		}
+X	if ( i >= 3) {
+			 System.out.print("e ");
+				  if (i < 6)
+					   System.out.print("= ");
+				  else
+					   System.out.print("!= ");
+				  if (i == 5)
+					   System.out.print("mc2");
+		} else
+			 System.out.println("no energy");
+X	if ( i >= 3) 
+			 System.out.print("e ");
+		if (i < 6)
+			 System.out.print("= ");
+		else
+			 System.out.print("!= ");
+		if (i == 5)
+			 System.out.print("mc2");
+		else 
+			 System.out.println("no energy");
+			 
+			 ------------------------
+			 
+Which statement is true about using a String object in a switch statement?
+X	String comparisons in case labels are case-sensitive.
+	String comparisons in case labels are case-insensitive.
+	Execution falls through if break statements are specified in case labels.
+	Execution terminates if break statements are not specified in case labels.
+
+	
+	--------------------------
+	
+	
+
+Given the following:
+
+1.     public class Java8_I {
+2.          public static void main (String[] args) {
+3.               char[] src = 
+4.                 { 'j', 'e', 's', 'p', 'r', 'e', 's',
+5.                 's', 'o', 'a', 'v', 'a', '7' };
+6.               char[] dest = new char[8];
+7.               //Insert code here
+8.               System.out.println(new String(dest));
+9.          }
+10.     }
+
+Which line of code, when inserted independently at line 7, would output espresso?
+	System.arraycopy(src, 8, dest, 0, 1);
+	System.arraycopy(src, 8, dest, 0, 2);
+X	System.arraycopy(src, 1, dest, 0, 8);
+	System.arraycopy(src, 2, dest, 0, 8);
+
+	
+	-----------------------------
+	
+	
+
+Given the following:
+
+int[][][] matrix = new int[5][5][5];
+
+Which line of code sets the first element of the matrix array?
+	matrix[0,0,0] = 42;
+	matrix[1,1,1] = 42;
+X	matrix[0][0][0] = 42;
+	matrix[1][1][1] = 42;
+	matrix[[0][0][0]] = 42;
+	matrix[[1][1][1]] = 42;
+
+	
+	-----------------------------
+	
+	
+
+Which statement is true about the while statement?
+	The while statement requires an expression that must use the conditional operator.
+	The while statement requires an expression that must use the assignment operator.
+	Statements within a while block will execute at least once.
+X	Statements within a while block may never execute.
+
+	
+	----------------------------
+	
+	
+
+
+Given the following code line:
+
+overloadedMethod(10.5);
+
+Which two statements are true about matching overloaded methods?
+	An overloaded method that declares a float parameter may match.
+X	An overloaded method that declares a Double parameter may match.
+X	An overloaded method that declares an Object parameter may match.
+	An overloaded method that declares a float return type may match.
+	An overloaded method that declares a Double return type may match.
+	An overloaded method that declares an Object return type may match.
+	
+	-----------------------
+	
+	
+
+Given the following code line:
+
+printToConsole("Cup of Java with a shot of espresso");
+
+Which overloaded method is invoked?
+	void printToConsole() {
+     System.out.println("Hello, world!");
+}
+	void printToConsole(StringBuffer buffer) {
+     System.out.println(buffer.toString());
+}
+	void printToConsole(Integer intObj) {
+     System.out.println("My number is " + intObj.toString());
+}
+X	void printToConsole(Object obj) {
+     System.out.println("My object is " + obj.toString());
+}
+
+
+----------------------------
+
+Given:
+
+public int combine (int... ints) {
+     //implementation omitted
+}
+
+Which code fragment correctly overloads the combine() method?
+	private Object combine (int... ints) {
+     //implementation omitted
+}
+X	public static double combine (double... doubles) {
+     //implementation omitted
+}
+	public static int combine (int... int2s) {
+     //implementation omitted
+}
+	private double combine (int... ints) {
+     //implementation omitted
+}
+
+----------------------------------
+
+
+Which code fragment correctly declares a method as a class member?
+	void methodA() {}
+	public void methodB() {}
+X	static void methodC() {}
+	final void methodD() {}
+
+	
+	------------------------------
+	
+	
+
+
+
+Given:
+
+class Fruit {}
+
+class Coconut extends Fruit {
+     Coconut(int size) {}
+     Coconut(int size, String region) {this(size);}
+}
+
+Which three lines of code invoke a default constructor?
+X	new Fruit();
+	new Coconut();
+	new Fruit(3);
+X	new Coconut(3);
+	new Fruit(3, "Costa Rica");
+X	new Coconut(3, "Costa Rica");
+
+	
+	------------------------------
+	
+	
+
+Given:
+
+public class PrinterClass {
+     private String arg;
+     public PrinterClass() { System.out.println("no args"); }
+     public PrinterClass(String arg) {
+          this();
+          this.arg = arg;
+          System.out.println("arg");
+     }
+     public void print() {
+          System.out.println(arg);
+     }
+     public static void main(String[] args) {
+          new PrinterClass("val").print();
+     }
+}
+
+What is the result?
+	arg
+	val
+	arg
+		val
+X	no args
+		arg
+		val
+
+
+--------------------
+
+Given:
+
+public class OutputSuperClass {
+     public OutputSuperClass() {
+          System.out.println("Super");
+     }
+}
+
+public class OutputSubClass extends OutputSuperClass {
+     public OutputSubClass () { 
+          System.out.println("Sub 1");
+     }
+     public OutputSubClass (int x) { 
+          System.out.println("Sub 2");
+     }
+     public OutputSubClass (int x, int y) {
+          System.out.println("Sub 3");
+     }
+     public static void main(String[] args) {
+          new OutputSubClass(1);
+     }
+}
+
+What is the result?
+	Sub 2
+	Sub 3
+	Super
+		Sub 1
+X	Super
+		Sub 2
+
+		
+		-----------------------------
+		
+Which access modifier will permit access to class members only from the same package?
+	private
+	protected
+	public
+X	no modifier
+
+	
+	------------------------------
+	
+	
+
+Given: 
+
+class StandardMethods { 
+     private StandardMethods() { System.out.println("Constructor invoked!"); } 
+     public static void printPerimeter(double... sides) { 
+          double result = 0; 
+          for (double side: sides) { 
+               result += side; 
+          } 
+          System.out.println("Perimeter is " + result); 
+     } 
+} 
+class MainClass { 
+     public static void main(String[] args) { 
+          new StandardMethods().printPerimeter(5,5); 
+     } 
+} 
+
+What is the result? 
+	Constructor invoked!
+	Perimeter is 10.0
+	Constructor invoked!
+		Perimeter is 10.0
+X	Compilation fails.
+	An exception is thrown at runtime.
+	
+	---------------------------------
+	
+	
+
+Given:
+
+public class Card {
+     enum Suit {CLUB, DIAMOND, HEART, SPADE}
+     enum Color {BLACK, RED}
+     //add code here
+}
+
+Which two field declarations, when inserted in the code, demonstrate good encapsulation principles?
+	Suit suit;
+	Color color;
+	public Suit suit;
+	public Color color;
+X	private Suit suit;
+X	private Color color;
+
+	
+	-------------------------
+	
+	
+
+Given:
+
+public class Java8 {
+
+     static int modify (Integer i) {
+           i += 10;
+           return i + 10;
+     }
+     public static void main(String[] args) {
+          Integer i = 10;
+          //insert code here
+     }
+}
+
+Which statement(s) should be inserted in the code to output 20?
+	System.out.println(modify(i));
+	System.out.println(modify(i + 10));
+	modify(i); System.out.println(i);
+X	modify(i); System.out.println(i + 10);
+
+	
+	
+	---------------------------
+	
+	Given the code fragment:
+
+Readable reader = new BufferedReader(new FileReader("file.txt"));
+
+Which is the object type for reader?
+	String
+	Readable
+	FileReader
+X	BufferedReader
+
+	
+	------------------------
+	
+	
+
+Which two statements are true about the super keyword?
+	The super keyword can access all superclass constructors from a subclass.
+	The super keyword can access all members of a superclass from a subclass.
+	The super keyword can access all constructors in a superclass or subclass.
+	The super keyword can access all members in a superclass or subclass.
+X	The super keyword can invoke superclass methods in overridden methods in a subclass.
+X	The super keyword can invoke superclass methods in overloaded methods in a subclass.
+
+	
+	---------------------------
+	
+Which type defines a valid abstract class?
+
+	public abstract class Programmer {
+		 public final Programmer (String language);
+		 public final void writeCode();
+	}
+	public class Programmer {
+		 private String language;
+		 public Programmer (String language);
+		 public void writeCode();
+	}
+	public class Programmer {
+		 final abstract Programmer (String language);
+		 final abstract void writeCode();
+	}
+X	public abstract class Programmer {
+		 private String language;
+		 public Programmer (String language) {
+			  this.language = language;
+		 }
+		 public void writeCode() {
+			  System.out.println("Written in " + language);
+		 }
+	}
+
+-------------------------------
+
+
+
+Which three exception classes are checked by the compiler?
+X	Throwable
+X	Exception
+	RuntimeException
+	StackOverflowError
+X	ClassNotFoundException
+	ConcurrentModificationException
+	
+	--------------------------
+	
+	
+
+Given the following method:
+
+public static String readData (Path filePath)
+  throws IOException, IllegalArgumentException {
+     //implementation omitted
+}
+
+Which two code fragments will compile?
+	public static void main(String[] args) {
+		readData(Paths.get("test.txt"));
+	}
+	public static void main(String[] args)
+		throws IllegalArgumentException{
+			readData(Paths.get("test.txt"));
+		}
+X	public static void main(String[] args)
+		throws IOException{
+			readData(Paths.get("test.txt"));
+		}
+	public static void main(String[] args) {
+		try {
+			readData(Paths.get("test"));
+		} catch (IllegalArgumentException ex) {
+			System.err.println(ex);
+		}
+	}
+X	public static void main(String[] args) {
+		try {
+			readData(Paths.get("test"));
+			} catch (IOException ex) {
+				System.err.println(ex);
+			}
+		}
+
+
+	
+	
+------------------------------
+
+Given:
+
+public class Java8_I {
+     public static void main (String[] args) {
+          StringBuilder sb = new StringBuilder("Goodbye, Dog");
+          sb.append("!");
+          sb.replace(9,12,"Spot");
+          sb.insert(0,"Bad! ");
+          System.out.println(sb);
+     }
+}
+
+What is the result when this program is executed?
+	Spot, Dog!
+	Bad! GoodSpot, Dog!
+X	Bad! Goodbye, Spot!
+	SpotBad! Goodbye, Dog!
+
+	
+	----------------------------
+	
+	
+
+Which statement is true about string equality?
+	The equals method compares object references.
+	The == operator compares character sequences.
+X	The compareTo method returns 0 for equality.
+	The compareTo method returns 1 for equality.
+
+	
+	------------------------------
+	
+	
+	
+	
+
+	
+
+	

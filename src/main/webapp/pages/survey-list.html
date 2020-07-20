@@ -1,0 +1,28 @@
+<div class="page-content container-fluid h-100 w-100 align-items-center"
+	data-bind="css : {'card' : !data.surveyListEmpty()}">
+	<div class="row align-items-center h-100 w-100 justify-content-center">
+		<div data-bind="if: data.surveyListEmpty()">
+			<h3 class="white">Non sono disponibili nuovi questionari.</h3>
+		</div>
+		<div
+			data-bind="if: !data.surveyListEmpty(), css : {'w-100 h-100': !data.surveyListEmpty()}">
+			<div class="page-content container-fluid h-100 align-items-center">
+				<div class="row">
+					<h3 class="survey-caption">Questionari disponibili:</h3>
+				</div>
+				<div class="row align-items-center"
+					data-bind="foreach: data.surveys">
+					<div class="col-md-4">
+						<button class="material-btn button survey-button"
+							data-bind="text: $data, click: navigation.toSurvey"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Autosubmit info dialog -->
+<div id="survey-autosubmit-info" title="Info">
+  <p>Il questionario &egrave; stato inviato automaticamente perch&eacute; il tempo &egrave; scaduto.</p>
+</div>

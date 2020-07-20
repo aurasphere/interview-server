@@ -1,0 +1,14 @@
+<html>  
+    <body>  
+        <div>Ciao,</div>
+        <div>ricevi questa email perchè ti sei registrato sull'app <a href="${appPath}">Colloqui</a></div>  
+        <br>
+        <div>  
+            <a href="${appPath}?email=${userEmail}&token=${userToken}&type=activation">Clicca qui per attivare il tuo account</a>  
+        </div>
+        <br>
+        <div>Se non sei stato tu ad effettuare la registrazione ignora questa email.</div>
+        <br>
+        <div>Saluti</div>
+    </body>  
+</html>  

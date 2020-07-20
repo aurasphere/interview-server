@@ -1,0 +1,34 @@
+<div class="page-content container-fluid survey-form card">
+	<ol data-bind="foreach: data.survey().questions">
+		<li data-bind="html: questionText"></li>
+		<div data-bind="foreach: answers">
+			<div class="form-radio no-margin"
+				data-bind="if: $parent.type == 'SINGLE_ANSWER'">
+				<div class="row no-margin radio" data-bind="css: $root.data.getRightAnswerClass($parentContext.$index(), $index())">
+					<label class="no-margin"> <input type="radio"
+						data-bind="attr: { name: 'user-answer-' + $parentContext.$index() }, value: $index, checked: $root.data.userAnswers()[$parentContext.$index()][0]" disabled />
+						<i class="helper"></i><span data-bind="html: $data"></span>
+					</label>
+				</div>
+			</div>
+			<div class="no-margin"
+				data-bind="if: $parent.type == 'MULTIPLE_ANSWERS'">
+				<div class="row no-margin checkbox" data-bind="css: $root.data.getRightAnswerClass($parentContext.$index(), $index())">
+					<label class="no-margin"> <input type="checkbox"
+						data-bind="attr: { name: 'user-answer-' + $parentContext.$index() }, value: $index, checked: $root.data.userAnswers()[$parentContext.$index()]" disabled/>
+						<i class="helper"></i><span data-bind="html: $data"></span>
+					</label>
+				</div>
+			</div>
+		</div>
+		<br />
+	</ol>
+	<div class="row">
+		<div class="col-md-12">
+			<span class="float-right">
+				<button data-bind="click: data.backButton"
+					class="material-btn button">Indietro</button>
+			</span>
+		</div>
+	</div>
+</div>

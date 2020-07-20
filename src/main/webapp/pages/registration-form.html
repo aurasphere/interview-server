@@ -1,0 +1,79 @@
+<div class="page-content h-100 container-fluid">
+	<div class="row h-100 align-items-center">
+		<div class="container-fluid card">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="mx-auto form-group large-input">
+						<input type="text" id="name" class="large-input"
+							data-bind="value: data.name" required /> <label
+							for="input" class="control-label">Nome</label> <i
+							class="bar large-input"></i>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="mx-auto form-group large-input">
+						<input type="text" id="surname" class="large-input"
+							data-bind="value: data.surname" required /> <label
+							for="input" class="control-label">Cognome</label> <i
+							class="bar large-input"></i>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="mx-auto form-group large-input">
+						<input type="text" id="email" class="large-input"
+							data-bind="value: data.email" required /> <label
+							for="input" class="control-label">Email</label> <i
+							class="bar large-input"></i>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="mx-auto form-group large-input">
+						<input type="text" id="birthday" class="large-input"
+							data-bind="value: data.birthday" required />
+						<label for="input" class="control-label">Data di nascita</label> <i
+							class="bar large-input"></i>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="mx-auto form-group large-input">
+						<input type="password" id="password" class="large-input"
+							data-bind="value: data.password" required /> <label for="input"
+							class="control-label">Password</label> <i class="bar large-input"></i>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="col-centered form-group">
+						<select id="technology"
+							data-bind="options: data.techList, value: data.technology"
+							required>
+						</select> <label for="input" class="control-label">Tecnologia</label> <i
+							class="bar"></i>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<p id="error-message" data-bind="text: data.errorMessage"
+					class="col-centered" />
+			</div>
+
+			<div class="row">
+				<div class="col-md-6 order-2 order-sm-2 order-md-1">
+					<span class="col-centered">
+						<button class="material-btn button" type="button"
+							data-bind="click: data.backButton">Indietro</button>
+					</span>
+				</div>
+				<div class="col-md-6 order-1 order-sm-1 order-md-2">
+					<span class="col-centered">
+						<button class="material-btn button"
+							data-bind="click: data.submitButton">Avanti</button>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

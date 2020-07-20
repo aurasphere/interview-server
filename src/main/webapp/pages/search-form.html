@@ -1,0 +1,162 @@
+<div class="page-content container-fluid h-100 align-items-center">
+	<div class="row h-100 align-items-center w-100 mx-auto">
+		<div class="container-fluid card w-100">
+			<form name="search" data-bind="submit: data.submitButton" novalidate>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="mx-auto form-group large-input">
+							<input type="text" id="name" class="large-input"
+								data-bind="value: data.name" required /> <label for="input"
+								class="control-label">Nome</label> <i class="bar large-input"></i>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="mx-auto form-group large-input">
+							<input type="text" id="surname" class="large-input"
+								data-bind="value: data.surname" required /> <label for="input"
+								class="control-label">Cognome</label> <i class="bar large-input"></i>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="mx-auto form-group large-input">
+							<input type="text" id="email" class="large-input"
+								data-bind="value: data.email" required /> <label for="input"
+								class="control-label">Email</label> <i class="bar large-input"></i>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="mx-auto form-group large-input">
+							<input type="text" id="birthday" class="large-input date-picker"
+								data-bind="value: data.birthday" required /> <label for="input"
+								class="control-label">Data di nascita</label> <i
+								class="bar large-input"></i>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="mx-auto form-group large-input">
+							<input type="text" id="dateTakenStart"
+								class="large-input date-picker"
+								data-bind="value: data.dateTakenStart" required /> <label
+								for="input" class="control-label">Data questionario
+								(Inizio)</label> <i class="bar large-input"></i>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="mx-auto form-group large-input">
+							<input type="text" id="dateTakenEnd"
+								class="large-input date-picker"
+								data-bind="value: data.dateTakenEnd" required /> <label
+								for="input" class="control-label">Data questionario
+								(Fine)</label> <i class="bar large-input"></i>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-centered form-group">
+						<select id="technology"
+							data-bind="options: data.techList, value: data.technology, optionsCaption: '', event : { change : data.getSurveysForOrder }"
+							required>
+						</select> <label for="input" class="control-label">Tecnologia</label> <i
+							class="bar"></i>
+					</div>
+				</div>
+				<div class="surveys-order-by-loading loading"></div>
+				<div class="row surveys-order-by pad-20"
+					data-bind="visible: data.technology() && data.surveysOrderBy().length > 0">
+					<div class="row">
+						<div class="col-md-12">
+							<strong>Ordina per punteggio questionario:</strong>
+						</div>
+					</div>
+					<div class="row form-radio w-100 no-margin">
+						<div class="col-md-4 radio no-margin">
+							<label class="no-margin"> <input type="radio"
+								name="order-by" data-bind="value : null, checked: data.orderBy" />
+								<i class="helper"></i><span>Nessuno</span>
+							</label>
+						</div>
+						<!-- ko foreach: data.surveysOrderBy -->
+						<div class="col-md-4 radio no-margin">
+							<label class="no-margin"> <input type="radio"
+								name="order-by"
+								data-bind="value: $data, checked: $root.data.orderBy" /> <i
+								class="helper"></i><span data-bind="text: $data"></span>
+							</label>
+						</div>
+						<!-- /ko -->
+					</div>
+				</div>
+				<div class="row">
+					<p id="error-message" data-bind="text: data.errorMessage"
+						class="col-centered" />
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<span class="float-right">
+							<button id="search-button" class="material-btn button"
+								type="submit">Cerca</button>
+						</span>
+					</div>
+				</div>
+			</form>
+			<div class="search-results-loading loading padding-bottom-20"></div>
+			<div id="search-results" class="search-results">
+				<div data-bind="if: data.emptySearch"
+					class="col-centered padding-bottom-20">Nessun risultato
+					trovato per i criteri specificati.</div>
+				<div class="accordion" data-bind="foreach: data.searchResults">
+					<h3 data-bind="html: $root.data.formatAccordionHeader($data)"></h3>
+					<div>
+						<span class="result-label">Data creazione: </span> <span
+							data-bind="text: $root.data.formatDate(creationTime, true)"></span>
+						<br /> <span class="result-label"> Data di nascita: </span><span
+							data-bind="text: $root.data.formatDate(birthday)"></span> <br />
+						<span class="result-label"> Data ultimo aggiornamento: </span><span
+							data-bind="if: updateTime == null">-</span> <span
+							data-bind="if: updateTime != null"> <span
+							data-bind="text: $root.data.formatDate(updateTime, true)"></span>
+						</span> <br /> <span class="result-label"> Tecnologia: </span><span
+							data-bind="text: technology"></span> <br /> <span
+							data-bind="if: scores != null && scores.length > 0"> <br />
+							<table class="table w-100 table-striped">
+								<thead class="thead-inverse">
+									<tr>
+										<th class="text-center">Questionario</th>
+										<th class="text-center">Punteggio</th>
+										<th class="text-center">Data</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody data-bind="foreach: scores">
+									<tr>
+										<td class="text-center hoverable-text" data-bind="text: surveyName, click: function() {$root.data.showResultDetails(surveyName, timeTaken, userAnswers, $parent.email)}"></td>
+										<td class="text-center"
+											data-bind="text: score + '/' + maxScore"></td>
+										<td class="text-center"
+											data-bind="text: $root.data.formatDate(timeTaken, true)"></td>
+										<td class="text-center"><i
+											class="fa fa-times survey-score-delete" aria-hidden="true"
+											data-bind="click: function() {$root.data.deleteScore($parent.email, surveyName, timeTaken, $parent, $index())}"></i>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</span>
+					</div>
+				</div>
+				<div id="paginator" data-bind="visible: data.showPaginator"
+					class="col-centered"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Confirmation dialog -->
+<div id="score-delete-confirm" title="Conferma">
+	<p>Sei sicuro di voler eliminare il punteggio selezionato?</p>
+</div>

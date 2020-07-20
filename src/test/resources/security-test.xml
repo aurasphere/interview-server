@@ -1,0 +1,42 @@
+<b:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:b="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<http auto-config="true" entry-point-ref="entryPoint">
+		<intercept-url pattern="/rest/login" access="permitAll" />
+		<intercept-url pattern="/rest/survey/getTechList"
+			access="permitAll" />
+		<intercept-url pattern="/rest/user/createUser" access="permitAll" />
+		<intercept-url pattern="/rest/survey/**" access="isAuthenticated()" />
+		<intercept-url pattern="/rest/user/**" access="hasRole('ROLE_ADMIN')" />
+
+		<form-login login-processing-url="/rest/login"
+			authentication-success-handler-ref="authSuccessHandler"
+			authentication-failure-handler-ref="authFailureHandler" />
+		<csrf disabled="true" />
+		<logout logout-url="/rest/logout" />
+	</http>
+
+	<authentication-manager>
+		<authentication-provider ref="authenticationProvider" />
+	</authentication-manager>
+
+	<b:bean id="authSuccessHandler"
+		class="co.aurasphere.interview.server.security.AuthSuccessHandler" />
+	<b:bean id="authFailureHandler"
+		class="co.aurasphere.interview.server.security.AuthFailureHandler" />
+	<b:bean id="authenticationProvider"
+		class="co.aurasphere.interview.server.security.CustomAuthenticationProvider" />
+	<b:bean id="entryPoint"
+		class="co.aurasphere.interview.server.security.RestAuthenticationEntryPoint" />
+
+	<!-- Encryptor for password authentication -->
+	<b:bean id="passwordEncryptor" class="org.jasypt.util.password.BasicPasswordEncryptor" />
+	
+	<!-- Server secret for token generation -->
+	<b:bean id="serverSecret" class="java.lang.String">
+		<b:constructor-arg value="SFsM9qGRmDeAMJSsUHk6Q2GG" />
+	</b:bean>
+	
+</b:beans>

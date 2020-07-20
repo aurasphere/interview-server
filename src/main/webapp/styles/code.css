@@ -1,0 +1,104 @@
+/** Style sheet for code formatting in surveys */
+.code-block {
+	background: #ffffff;
+	overflow: auto;
+	width: auto;
+	border: solid gray;
+	border-width: .1em .1em .1em .8em;
+	padding: .2em .6em;
+}
+
+.pre-code-block {
+	margin: 0;
+	line-height: 125%;
+}
+
+.code-default-color {
+	color: #333333;
+}
+
+/* Java */
+
+.code-keyword {
+	color: #008800;
+	font-weight: bold;
+}
+
+.code-class-name {
+	color: #BB0066;
+	font-weight: bold;
+}
+
+.code-primitive {
+	color: #333399;
+	font-weight: bold;
+}
+
+.code-static-import {
+	color: #0e84b5;
+	font-weight: bold;
+}
+
+.code-method {
+	color: #0000CC;
+}
+
+.code-literal-or-line-number {
+	color: #0000DD;
+	font-weight: bold;
+}
+
+.code-string {
+	background-color: #fff0f0;
+}
+
+.code-comment {
+	color: #888888;
+}
+
+.code-method-signature-name {
+	color: #0066BB;
+	font-weight: bold;
+}
+
+/* HTML */
+.code-html-tag {
+	color: #007700;
+}
+
+.code-html-tag-attribute {
+	color: #0000CC;
+}
+
+.code-html-tag-attribute-value {
+	background-color: #fff0f0;
+}
+
+/* CSS */
+.code-css-html-tag {
+	color: #007700;
+}
+
+.code-css-class-name {
+	color: #BB0066;
+	font-weight: bold;
+}
+
+.code-css-attribute {
+	color: #008800;
+	font-weight: bold;
+}
+
+.code-css-value {
+	color: #007020;
+}
+
+.code-css-number {
+	color: #6600EE;
+	font-weight: bold;
+}
+
+li.L0, li.L1, li.L2, li.L3,
+li.L5, li.L6, li.L7, li.L8 {
+  list-style-type: decimal !important;
+}

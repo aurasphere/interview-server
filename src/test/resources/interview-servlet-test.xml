@@ -1,0 +1,112 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context-4.0.xsd
+   http://www.springframework.org/schema/mvc
+   http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+   http://www.springframework.org/schema/data/mongo 
+   http://www.springframework.org/schema/data/mongo/spring-mongo-1.2.xsd
+   http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+	<import resource="security-test.xml" />
+
+	<context:component-scan
+		base-package="co.aurasphere.interview.server" />
+
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean
+				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<property name="objectMapper">
+					<bean
+						class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean">
+						<property name="featuresToDisable">
+							<array>
+								<util:constant
+									static-field="com.fasterxml.jackson.databind.SerializationFeature.WRITE_DATES_AS_TIMESTAMPS" />
+							</array>
+						</property>
+					</bean>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<!-- Email configuration -->
+	<bean id="mailSender"
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" ref="appSenderEmail" />
+		<property name="password" value="interview" />
+
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- Server secret for token generation -->
+	<bean id="appSenderEmail" class="java.lang.String">
+		<constructor-arg value="interview@aurasphere.co" />
+	</bean>
+
+	<!-- Templating engine -->
+	<bean id="velocityEngine"
+		class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="velocityProperties">
+			<props>
+				<prop key="resource.loader">class</prop>
+				<prop key="class.resource.loader.class">
+					org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- Database configuration -->
+	<bean
+		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+	<mongo:repositories
+		base-package="co.aurasphere.interview.server.dao"
+		mongo-template-ref="mongoTemplate" />
+
+	<bean id="userCredentials"
+		class="org.springframework.data.authentication.UserCredentials">
+		<constructor-arg name="username" value="interview" />
+		<constructor-arg name="password" value="interview-1517" />
+	</bean>
+
+	<mongo:mongo id="mongo" host="localhost" port="27017" />
+
+	<bean id="mongoTemplate"
+		class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg ref="mongo" />
+		<property name="writeConcern">
+			<util:constant
+				static-field="com.mongodb.WriteConcern.SAFE"></util:constant>
+		</property>
+		<constructor-arg name="databaseName" value="interview" />
+		<constructor-arg name="userCredentials"
+			ref="userCredentials" />
+	</bean>
+
+	<bean id="taskExecutor"
+		class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<property name="corePoolSize" value="5"></property>
+		<property name="maxPoolSize" value="10"></property>
+		<property name="queueCapacity" value="40"></property>
+		<property name="waitForTasksToCompleteOnShutdown"
+			value="true"></property>
+	</bean>
+
+</beans>

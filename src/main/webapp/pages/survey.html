@@ -1,0 +1,45 @@
+<div class="page-content container-fluid survey-form card">
+	<div class="row">
+		<div class="col-md-12">
+			<span class="float-right"> <span class="bold">Tempo
+					rimanente: </span> <span id="timer"></span>
+			</span>
+		</div>
+	</div>
+	<ol data-bind="foreach: data.survey().questions">
+		<li data-bind="html: questionText"></li>
+		<div data-bind="foreach: answers">
+			<div class="form-radio no-margin"
+				data-bind="if: $parent.type == 'SINGLE_ANSWER'">
+				<div class="row radio no-margin">
+					<label class="no-margin"> <input type="radio"
+						data-bind="attr: { name: 'answer-' + $parentContext.$index() }, value: $index, checked: $parent.checkedAnswers" />
+						<i class="helper"></i><span data-bind="html: $data"></span>
+					</label>
+				</div>
+			</div>
+			<div class="no-margin"
+				data-bind="if: $parent.type == 'MULTIPLE_ANSWERS'">
+				<div class="row checkbox no-margin">
+					<label class="no-margin"> <input type="checkbox"
+						data-bind="attr: { name: 'answer-' + $parentContext.$index() }, value: $index, checked: $parent.checkedAnswers" />
+						<i class="helper"></i><span data-bind="html: $data"></span>
+					</label>
+				</div>
+			</div>
+		</div>
+		<br />
+	</ol>
+	<div class="row">
+		<div class="col-md-12">
+			<span class="float-right">
+				<button id="survey-submit-button" class="material-btn button">Invia</button>
+			</span>
+		</div>
+	</div>
+</div>
+
+<!-- Confirmation dialog -->
+<div id="survey-submit-confirm" title="Conferma">
+	<p>Sei sicuro di voler concludere il questionario?</p>
+</div>
