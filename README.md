@@ -19,6 +19,6 @@ This project is considered concluded, although there's a lot of space for improv
 
 ## License
 
-The project is released under the GNU Affero General Public License v3.0 which allows you to freely reuse this code with some conditions that maybe be annoying in case you have a commercial project (open sourcing the code). In that case, feel free to reach me out to see what we can do about it.
+The project is released under the GNU Affero General Public License v3.0 which allows you to freely reuse this code with some conditions that may be annoying in case you have a commercial project (open sourcing the code). In that case, feel free to reach me out to see what we can do about it.
 
 <sub>Copyright (c) 2017 Donato Rimenti</sub>
