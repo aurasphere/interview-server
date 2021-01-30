@@ -1,8 +1,3 @@
-.settings/*
-
-*.classpath
-*.project
-
-target/*
-*.class
-/target/
+/interview-desktop/assets/installer/chromedriver.exe
+/interview-desktop/assets/installer/jre-8u151-windows-i586.exe
+/interview-desktop/assets/installer/mongodb-win32-x86_64-2008plus-ssl-3.4.10-signed.msi

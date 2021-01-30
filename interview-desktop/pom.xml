@@ -1,0 +1,149 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>co.aurasphere.interview</groupId>
+	<artifactId>interview-desktop</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Interview Desktop</name>
+	<description>Desktop application for technical surveys.</description>
+
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-server -->
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>9.4.7.v20170914</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-webapp -->
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-webapp</artifactId>
+			<version>9.4.7.v20170914</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.8.1</version>
+		</dependency>
+
+		<!-- Logger dependencies -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.25</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- Builds an executable JAR -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<archive>
+								<manifest>
+									<mainClass>
+										co.aurasphere.interview.desktop.InterviewDesktop
+									</mainClass>
+								</manifest>
+								<manifestEntries>
+									<SplashScreen-Image>splash.png</SplashScreen-Image>
+								</manifestEntries>
+							</archive>
+							<descriptorRefs>
+								<descriptorRef>jar-with-dependencies</descriptorRef>
+							</descriptorRefs>
+							<appendAssemblyId>false</appendAssemblyId>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Builds an .EXE -->
+			<plugin>
+				<groupId>com.akathist.maven.plugins.launch4j</groupId>
+				<artifactId>launch4j-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>l4j-clui</id>
+						<phase>package</phase>
+						<goals>
+							<goal>launch4j</goal>
+						</goals>
+						<configuration>
+							<dontWrapJar>true</dontWrapJar>
+							<headerType>gui</headerType>
+							<jar>interview-desktop.jar</jar>
+							<outfile>${project.build.directory}/Interview.exe</outfile>
+							<errTitle>Error</errTitle>
+							<chdir>.</chdir>
+							<priority>normal</priority>
+							<downloadUrl>http://java.com/download</downloadUrl>
+							<stayAlive>true</stayAlive>
+							<restartOnCrash>false</restartOnCrash>
+							<manifest></manifest>
+							<icon>${project.build.directory}/classes/icon.ico</icon>
+							<singleInstance>
+								<mutexName>Interview</mutexName>
+								<windowTitle>Interview</windowTitle>
+							</singleInstance>
+							<jre>
+								<bundledJre64Bit>false</bundledJre64Bit>
+								<bundledJreAsFallback>false</bundledJreAsFallback>
+								<minVersion>1.8.0</minVersion>
+								<jdkPreference>preferJre</jdkPreference>
+								<runtimeBits>64/32</runtimeBits>
+							</jre>
+							<versionInfo>
+								<fileVersion>1.0.0.0</fileVersion>
+								<txtFileVersion>1.0.0.0</txtFileVersion>
+								<fileDescription>Interview</fileDescription>
+								<copyright>©2015 Donato Rimenti</copyright>
+								<productVersion>1.0.0.0</productVersion>
+								<txtProductVersion>1.0.0.0</txtProductVersion>
+								<productName>Interview</productName>
+								<companyName>Donato Rimenti</companyName>
+								<internalName>Interview</internalName>
+								<originalFilename>Interview.exe</originalFilename>
+								<trademarks>©2015 Donato Rimenti</trademarks>
+								<language>ENGLISH</language>
+							</versionInfo>
+							<messages>
+								<startupErr>Error during application startup</startupErr>
+								<bundledJreErr>This application uses an embedded JRE which is missing or corrupt. The error may be due to an error during installation.</bundledJreErr>
+								<jreVersionErr>This application needs a Java
+									Runtime Environment 8.</jreVersionErr>
+								<launcherErr>The registry refers to a nonexistent Java Runtime
+									Environment installation or the runtime is corrupted.</launcherErr>
+								<instanceAlreadyExistsMsg>The application is already started.</instanceAlreadyExistsMsg>
+							</messages>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<finalName>interview-desktop</finalName>
+	</build>
+</project>
