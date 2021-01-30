@@ -10,6 +10,7 @@ Platform for performing programming job interviews through surveys. This project
  - survey selection (the surveys can be loaded on the DB directly only)
  - survey filling (each survey has configurable timer and automatic code pretty printing)
  - survey review by admin (search by various criteria, history for a given candidate, his submissions along with the correct answers)
+ - wrapper to run it as a desktop application with installer
  
 This project is entirely localized in italian.
 
